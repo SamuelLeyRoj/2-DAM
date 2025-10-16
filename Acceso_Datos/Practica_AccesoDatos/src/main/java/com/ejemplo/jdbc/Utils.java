@@ -40,7 +40,7 @@ public class Utils {
         ResultSet rs = ps.executeQuery();
         while(rs.next()){
             System.out.printf("Nombre: ");
-            System.out.printf(rs.getString("nombre"));
+            System.out.printf(rs.getString("nombre"));  
         }
             }
         }
