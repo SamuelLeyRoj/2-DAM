@@ -1,0 +1,31 @@
+.colorNegro {
+
+  --color: black;
+}
+
+
+.contenedorBotones{
+ --color: black;
+}
+
+.boton-usuario {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+ width: 65%;
+ height: 85px;
+ margin: 22px;
+ font-family: "Arial Black";
+  font-size: 16px;
+  color: black;
+  background-color: white;
+  border-radius: 15px;
+  border: 2px solid black;
+
+}
+
+
+.icono-boton {
+  height: 30px;
+
+}

@@ -34,14 +34,23 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
 
-body, ion-app{
-  background: white;
+
+body, ion-app {
+  background: url('assets/img/fondo.png') no-repeat center center fixed;
   background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
   min-height: 100vh;
+  height: 100%;
 }
 
-ion-app, ion-content{
-  --background:transparent;
+/* Asegúrate de que el contenido sea transparente para que se vea el fondo */
+ion-content {
+  --background: transparent;
+}
+
+/* Si usas scroll dentro de ion-content, evita que el fondo se repita */
+ion-content::part(scroll) {
+  background: transparent !important;
 }

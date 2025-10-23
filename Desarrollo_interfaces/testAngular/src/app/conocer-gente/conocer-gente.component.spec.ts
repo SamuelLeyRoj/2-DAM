@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { FormularioCamposComponent } from './formulario-campos.component';
+import { ConocerGenteComponent } from './conocer-gente.component';
 
-describe('FormularioCamposComponent', () => {
-  let component: FormularioCamposComponent;
-  let fixture: ComponentFixture<FormularioCamposComponent>;
+describe('ConocerGenteComponent', () => {
+  let component: ConocerGenteComponent;
+  let fixture: ComponentFixture<ConocerGenteComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [FormularioCamposComponent],
+      imports: [ConocerGenteComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FormularioCamposComponent);
+    fixture = TestBed.createComponent(ConocerGenteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

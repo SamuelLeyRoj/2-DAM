@@ -1,0 +1,44 @@
+<div class="ion-display-flex ion-justify-content-center">
+
+  <div style="gap: 5rem" class="tarjeta ion-display-flex ion-flex-column ">
+
+    <div class="alinear">
+        <h6 style="margin: 0">Publicar foto:</h6>
+      <!-- Botón visible solo si NO hay imagen -->
+      <ion-button *ngIf="!imagenPreview" (click)="seleccionarImagen()">Subir imagen</ion-button>
+
+      <!-- Input de tipo archivo oculto -->
+      <input
+        type="file"
+        accept="image/*"
+        hidden
+        #inputImagen
+        (change)="onFileSelected($event)"
+      />
+
+      <!-- Vista previa de la imagen -->
+      <div *ngIf="imagenPreview" style="margin-top: 1rem;">
+        <ion-img
+          [src]="imagenPreview"
+          style="width: 200px; height: 200px; object-fit: cover; border-radius: 10px;"
+        ></ion-img>
+      </div>
+    </div>
+
+    <div class="alinear">
+      <h6 style="margin: 0">Talla:</h6>
+      <ion-select  placeholder="Elige el estilo" [(ngModel)]="frutasSeleccionadas" multiple="false">
+        <ion-select-option value="Cani">Cani</ion-select-option>
+        <ion-select-option value="Pijo">Pijo</ion-select-option>
+        <ion-select-option value="Del rollo">Del rollo</ion-select-option>
+      </ion-select>
+
+    </div>
+
+    <div class="alinear">
+      <h6 style="margin: 0">Tipo Ropa:</h6>
+     <input placeholder="..." style="width: 30%;background-color: white;border-radius: 10px">
+    </div>
+  </div>
+
+</div>
