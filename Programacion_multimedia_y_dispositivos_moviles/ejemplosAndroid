@@ -1,0 +1,122 @@
+package com.example.test1
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.test1.ui.theme.Test1Theme
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.unit.dp
+
+
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            Test1Theme {
+                Scaffold(modifier = Modifier.fillMaxSize(),
+                    containerColor = colorResource(id = R.color.background_color_custom)
+                    ) { innerPadding ->
+                    Greeting(
+                        name = "Android",
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+
+    var clicked by remember { mutableStateOf(false) }
+    var name by remember { mutableStateOf("") }
+
+    Column(modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+
+    ) {
+        Text(
+            text = stringResource(id= R.string.Saludo,name),
+            color = colorResource(id = R.color.black)
+        )
+        Text(
+            text = stringResource(id = R.string.Nombre, name),
+            color = colorResource(id = R.color.text_color_custom)
+        )
+
+
+        OutlinedTextField(
+            value = name,
+            onValueChange = { name = it },
+            label = { Text("Introduce tu nombre") },
+
+        )
+
+
+        Row(modifier = modifier.padding()){
+
+            //Boton1
+
+            Button(
+                onClick = {clicked = !clicked},
+                modifier = Modifier.size(width = 150.dp, height = 60.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = if(clicked) colorResource(id = R.color.purple_700)
+                            else colorResource(id=R.color.purple_200),
+                    contentColor = if(clicked) colorResource(id = R.color.purple_200)
+                            else colorResource(id=R.color.purple_700)
+                )
+
+            ) {
+                Text(text = "Cambia el color")
+
+            }
+
+            //Boton2
+
+            Button(
+                onClick = {println("Botón pulsado")},
+                modifier = Modifier.size(width = 150.dp, height = 60.dp),
+                colors = ButtonDefaults.buttonColors(
+                    contentColor = colorResource(id = R.color.black),
+                    containerColor = colorResource(id = R.color.purple_200)
+                )
+            ){
+                Text(text = "Volver")
+            }
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    Test1Theme {
+        Greeting("Android")
+    }
+}
