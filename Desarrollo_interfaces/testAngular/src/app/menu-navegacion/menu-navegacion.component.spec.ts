@@ -1,0 +1,22 @@
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+
+import { MenuNavegacionComponent } from './menu-navegacion.component';
+
+describe('MenuNavegacionComponent', () => {
+  let component: MenuNavegacionComponent;
+  let fixture: ComponentFixture<MenuNavegacionComponent>;
+
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [MenuNavegacionComponent],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(MenuNavegacionComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  }));
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

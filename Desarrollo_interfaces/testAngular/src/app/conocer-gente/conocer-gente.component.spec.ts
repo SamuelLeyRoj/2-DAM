@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { BotonComponent } from './boton.component';
+import { ConocerGenteComponent } from './conocer-gente.component';
 
-describe('BotonComponent', () => {
-  let component: BotonComponent;
-  let fixture: ComponentFixture<BotonComponent>;
+describe('ConocerGenteComponent', () => {
+  let component: ConocerGenteComponent;
+  let fixture: ComponentFixture<ConocerGenteComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [BotonComponent],
+      imports: [ConocerGenteComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BotonComponent);
+    fixture = TestBed.createComponent(ConocerGenteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
