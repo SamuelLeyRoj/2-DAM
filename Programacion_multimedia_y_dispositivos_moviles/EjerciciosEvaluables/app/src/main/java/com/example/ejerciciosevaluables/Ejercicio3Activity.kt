@@ -1,36 +1,29 @@
 package com.example.ejerciciosevaluables
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import com.example.ejerciciosevaluables.ui.theme.EjerciciosEvaluablesTheme
+import androidx.appcompat.app.AppCompatActivity
+import android.widget.Button
+import android.widget.Toast
 
-class Ejercicio3Activity : ComponentActivity() {
+class Ejercicio3Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            EjerciciosEvaluablesTheme {
-                PantallaEjercicio3()
-            }
-        }
-    }
-}
+        setContentView(R.layout.activity_ejercicio3)
 
-@Composable
-fun PantallaEjercicio3() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text("Esta es la pantalla del Ejercicio 3")
+        val btnPantalla1 = findViewById<Button>(R.id.btnPantalla1)
+        val btnPantalla2 = findViewById<Button>(R.id.btnPantalla2)
+        val btnPantalla3 = findViewById<Button>(R.id.btnPantalla3)
+
+        btnPantalla1.setOnClickListener {
+            Toast.makeText(this, "Has pulsado Pantalla 1", Toast.LENGTH_SHORT).show()
+        }
+
+        btnPantalla2.setOnClickListener {
+            Toast.makeText(this, "Has pulsado Pantalla 2", Toast.LENGTH_SHORT).show()
+        }
+
+        btnPantalla3.setOnClickListener {
+            Toast.makeText(this, "Has pulsado Pantalla 3", Toast.LENGTH_SHORT).show()
+        }
     }
 }

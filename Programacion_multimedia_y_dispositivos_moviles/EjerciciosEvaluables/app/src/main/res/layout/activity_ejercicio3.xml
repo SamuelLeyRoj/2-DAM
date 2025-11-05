@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Esta es la pantalla del Ejercicio 3"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/btnPantalla1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ir a Pantalla 1"/>
+
+    <Button
+        android:id="@+id/btnPantalla2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ir a Pantalla 2"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/btnPantalla3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ir a Pantalla 3"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>
