@@ -1,0 +1,36 @@
+.contenedor-centrado{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.botones-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 32px;
+  padding: 16px;
+  width: 80%;
+}
+
+.botonesNavegacion {
+  width: 85px;
+  background-color: rgba(131, 80, 242, 1);
+  border-radius: 15px;
+  color: white;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.botonesTamanio{
+  width: 60%;
+}
+
+.tamanioImagenIcono{
+  font-size: 35px;
+}
