@@ -12,18 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EjerciciosEvaluables">
 
-
         <activity android:name=".Ejercicio1Activity" />
         <activity android:name=".Ejercicio2Activity" />
-        <activity android:name=".Ejercicio2_1Activity"/>
-        <activity
-            android:name=".Ejercicio3Activity"
-            android:theme="@style/Theme.Ejerciciosevaluables.AppCompat" />
+        <activity android:name=".Ejercicio2_1Activity" />
+        <activity android:name=".Ejercicio3Activity"
+            android:theme="@style/Theme.EjerciciosEvaluables" />
+        <activity android:name=".Ejercicio3_1Activity" />
+        <activity android:name=".Ejercicio3_2Activity" />
+        <activity android:name=".Ejercicio3_3Activity" />
         <activity android:name=".Ejercicio4Activity" />
         <activity android:name=".Ejercicio5Activity" />
         <activity android:name=".Ejercicio6Activity" />
-
-
 
         <activity
             android:name=".MainActivity"
