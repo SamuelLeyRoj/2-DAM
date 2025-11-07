@@ -4,6 +4,15 @@
 
 <ion-content >
 
+  <div style="margin-left: 11%;margin-top: 8%" class="ion-display-flex ion-margin">
+    <ion-select  placeholder="Elige el estilo" [(ngModel)]="EstiloSeleccionado" multiple="false">
+      <ion-select-option value="Casual">Cani</ion-select-option>
+      <ion-select-option value="Fromal">Pijo</ion-select-option>
+      <ion-select-option value="Deportivo">Del rollo</ion-select-option>
+    </ion-select>
+  </div>
+
+
   <app-cartas-ropa>
 
   </app-cartas-ropa>
@@ -11,9 +20,17 @@
   <app-cartas-ropa>
 
   </app-cartas-ropa>
+  <app-cartas-ropa>
+
+  </app-cartas-ropa>
+  <app-cartas-ropa>
+
+  </app-cartas-ropa>
+
+</ion-content>
+<ion-footer>
   <app-botones-navegacion>
 
   </app-botones-navegacion>
 
-
-</ion-content>
+</ion-footer>

@@ -2,7 +2,38 @@
 
   background-color: gray;
   border-radius: 12px;
-  height: 250px;
-  width: 77%;
+  height: 240px;
+  width: 89%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
 
+.contenedorShopDentro{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 45% auto;
+
+
+}
+
+.contenedorShopDentroAbajo{
+  height: 100%;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.images{
+  width: 65%;
+  height: 40%;
+}
+
+.imgestrellas{
+
+  font-size: 35px;
+}
+
+h1{
+  color: white;
+  font-family: "Arial Black";
 }
