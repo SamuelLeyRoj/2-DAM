@@ -8,10 +8,7 @@ import {NavController} from "@ionic/angular";
   styleUrls: ['./botones-navegacion.component.scss'],
   standalone: true,
   imports: [
-    IonContent,
-    IonGrid,
-    IonRow,
-    IonCol,
+
     IonIcon
   ]
 })

@@ -7,6 +7,7 @@ import { ContactosPage } from './paginas/contactos/contactos.component';
 import { MiPerfilPage } from './paginas/mi-perfil/mi-perfil.component';
 import { ConocerGentePage } from './paginas/conocer-gente/conocer-gente.component';
 import { MisPrendasPage } from './paginas/mis-prendas/mis-prendas.component';
+import {RopaInformacionPage} from "./paginas/ropa-informacion/ropa-informacion.component";
 
 export const routes: Routes = [
   { path: '', component: InicioPage },
@@ -18,4 +19,5 @@ export const routes: Routes = [
   { path: 'miPerfil', component: MiPerfilPage },
   { path: 'conocerGente', component: ConocerGentePage },
   { path: 'misPrendas', component: MisPrendasPage },
+  { path: 'ropaInformacion', component: RopaInformacionPage },
 ];

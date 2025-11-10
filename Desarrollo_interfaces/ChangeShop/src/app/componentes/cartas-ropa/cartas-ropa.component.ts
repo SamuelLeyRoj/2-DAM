@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {IonIcon} from "@ionic/angular/standalone";
+import {NavController} from "@ionic/angular";
 
 @Component({
   selector: 'app-cartas-ropa',
@@ -12,8 +13,13 @@ import {IonIcon} from "@ionic/angular/standalone";
 })
 export class CartasRopaComponent  implements OnInit {
 
-  constructor() { }
+  // eslint-disable-next-line @angular-eslint/prefer-inject
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {}
 
+
+  irInformacionRopa() {
+    this.navCtrl.navigateForward('/ropaInformacion');
+  }
 }

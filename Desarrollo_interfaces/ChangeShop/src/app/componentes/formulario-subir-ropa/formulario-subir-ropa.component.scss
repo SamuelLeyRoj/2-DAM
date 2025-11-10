@@ -1,14 +1,19 @@
 .tarjeta{
   font-family: "Arial Black";
   border-radius: 10px;
-  border: 1px solid black;
   background-color: rgba(131, 80, 242, 1);
-  width: 83%;
+  width: 80%;
   color: white;
   padding: 9%;
 }
 
 .alinear{
   display: flex;
+  flex-direction: column;
   align-items: center;
+}
+
+
+.img{
+  font-size: 100px;
 }

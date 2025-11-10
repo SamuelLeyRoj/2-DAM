@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {IonButton, IonImg, IonInput, IonSelect, IonSelectOption} from "@ionic/angular/standalone";
+import {IonButton, IonIcon, IonImg, IonInput, IonSelect, IonSelectOption} from "@ionic/angular/standalone";
 import {FormsModule} from "@angular/forms";
 import { CommonModule } from '@angular/common';
 
@@ -15,7 +15,8 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     IonButton,
     IonImg,
-    CommonModule
+    CommonModule,
+    IonIcon
   ]
 })
 export class FormularioSubirRopaComponent  implements OnInit {

@@ -1,11 +1,11 @@
 <div class="ion-display-flex ion-justify-content-center">
 
-  <div style="gap: 5rem" class="tarjeta ion-display-flex ion-flex-column ">
+  <div style="gap: 4rem;margin-top: 15% " class="tarjeta ion-display-flex ion-flex-column ">
 
     <div class="alinear">
-        <h6 style="margin: 0">Publicar foto:</h6>
+        <h3 style="margin: 0; margin-bottom: 10%">Publicar foto:</h3>
       <!-- Botón visible solo si NO hay imagen -->
-      <ion-button *ngIf="!imagenPreview" (click)="seleccionarImagen()">Subir imagen</ion-button>
+      <button *ngIf="!imagenPreview" (click)="seleccionarImagen()"><ion-icon class="img" name="images-outline"></ion-icon></button>
 
       <!-- Input de tipo archivo oculto -->
       <input

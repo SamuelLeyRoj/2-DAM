@@ -1,18 +1,19 @@
-.contenedorShop{
-
-  background-color: gray;
+.contenedorShop {
+  background-color: rgba(0, 0, 0, 0.69);
   border-radius: 12px;
-  height: 240px;
+  height: 540px;
   width: 89%;
   margin-top: 10%;
   margin-bottom: 10%;
 }
 
+
+
 .contenedorShopDentro{
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: 45% auto;
+  grid-template-rows: 73% 27%;
 
 
 }
@@ -24,8 +25,9 @@
 }
 
 .images{
-  width: 65%;
-  height: 40%;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
 }
 
 .imgestrellas{
@@ -33,7 +35,7 @@
   font-size: 35px;
 }
 
-h1{
+h4{
   color: white;
   font-family: "Arial Black";
 }
