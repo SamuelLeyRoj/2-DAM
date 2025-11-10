@@ -1,4 +1,4 @@
-package com.safa.ej1;
+package ej1;
 
 public class ej4 {
 }
