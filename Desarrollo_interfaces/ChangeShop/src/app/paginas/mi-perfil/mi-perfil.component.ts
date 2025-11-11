@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {IonIcon} from "@ionic/angular/standalone";
+import {NavController} from "@ionic/angular";
 
 @Component({
   selector: 'app-mi-perfil',
@@ -12,8 +13,15 @@ import {IonIcon} from "@ionic/angular/standalone";
 })
 export class MiPerfilPage  implements OnInit {
 
-  constructor() { }
+  // eslint-disable-next-line @angular-eslint/prefer-inject
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {}
 
+
+  volver(){
+
+    this.navCtrl.navigateForward('/comprarRopa')
+
+  }
 }

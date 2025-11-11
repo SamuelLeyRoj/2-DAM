@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {IonIcon} from "@ionic/angular/standalone";
-import { IonicModule } from '@ionic/angular';
+import {IonicModule, NavController} from '@ionic/angular';
 @Component({
   selector: 'app-contactos',
   templateUrl: './contactos.component.html',
@@ -12,8 +12,15 @@ import { IonicModule } from '@ionic/angular';
 })
 export class ContactosPage  implements OnInit {
 
-  constructor() { }
+// eslint-disable-next-line @angular-eslint/prefer-inject
+  constructor(private navCtrl: NavController) {}
 
   ngOnInit() {}
 
+
+  volver(){
+
+    this.navCtrl.navigateForward('/comprarRopa')
+
+  }
 }

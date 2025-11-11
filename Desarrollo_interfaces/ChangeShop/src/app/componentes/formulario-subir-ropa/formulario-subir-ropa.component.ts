@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {IonButton, IonIcon, IonImg, IonInput, IonSelect, IonSelectOption} from "@ionic/angular/standalone";
 import {FormsModule} from "@angular/forms";
 import { CommonModule } from '@angular/common';
+import {BotonGrandeAccionComponent} from "../boton-grande-accion/boton-grande-accion.component";
 
 @Component({
   selector: 'app-formulario-subir-ropa',
@@ -9,26 +10,25 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./formulario-subir-ropa.component.scss'],
   standalone: true,
   imports: [
-    IonInput,
     IonSelect,
     IonSelectOption,
     FormsModule,
-    IonButton,
     IonImg,
     CommonModule,
-    IonIcon
+    IonIcon,
+    BotonGrandeAccionComponent
   ]
 })
 export class FormularioSubirRopaComponent  implements OnInit {
 
-
-
-
   frutasSeleccionadas = '';
+  tallaSeleccionada: string | null = null;   // nueva variable para la talla
+  tipoRopaSeleccionada: string | null = null; // nueva variable para el tipo de ropa
 
   constructor() { }
 
   ngOnInit() {}
+
   @ViewChild('inputImagen') inputImagen!: ElementRef<HTMLInputElement>;
   imagenPreview: string | ArrayBuffer | null = null;
 

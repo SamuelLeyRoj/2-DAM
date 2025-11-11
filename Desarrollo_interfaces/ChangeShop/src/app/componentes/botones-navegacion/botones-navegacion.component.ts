@@ -28,6 +28,6 @@ export class BotonesNavegacionComponent  implements OnInit {
   }
 
   irMisPrendas(){
-    this.navCtrl.navigateForward('/misPrendas');
+    this.navCtrl.navigateForward('/misPrendasInicio');
   }
 }

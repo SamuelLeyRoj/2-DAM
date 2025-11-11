@@ -19,6 +19,7 @@ import {IonInput, IonItem, IonLabel} from "@ionic/angular/standalone";
 })
 export class InicioSesionPage  implements OnInit {
 
+  // eslint-disable-next-line @angular-eslint/prefer-inject
   constructor(private navCtrl: NavController) {}
 
   ngOnInit() {}
