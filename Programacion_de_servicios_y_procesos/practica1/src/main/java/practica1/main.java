@@ -46,12 +46,25 @@ public class main  {
 
         */
 
+
+        /*
         ArrayList<String> listaFicheros = new ArrayList<>();
         listaFicheros.add("src/main/java/practica1/ficheros/fichero1.txt");
         listaFicheros.add("src/main/java/practica1/ficheros/fichero2.txt");
         listaFicheros.add("src/main/java/practica1/ficheros/fichero3.txt");
 
         ej3 objeto1 = new ej3(listaFicheros);
+
+
+         */
+
+        ArrayList<String> listaFicheros = new ArrayList<>();
+        listaFicheros.add("src/main/java/practica1/ficheros/fichero1.txt");
+        listaFicheros.add("src/main/java/practica1/ficheros/fichero2.txt");
+        listaFicheros.add("src/main/java/practica1/ficheros/fichero3.txt");
+
+        ej4 obj = new ej4(listaFicheros);
+
 
     }
 

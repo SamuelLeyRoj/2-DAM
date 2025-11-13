@@ -10,5 +10,31 @@ tarda en contar las palabras.
 
 * */
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+
 public class ej4 {
+
+    ArrayList<Thread> hilosLista = new ArrayList<>();
+    ArrayList<String> lista;
+
+    public ej4 (ArrayList<String> lista) {
+
+        this.lista = lista;
+
+        for(String i : lista){
+            ej4Hilo hilo = new ej4Hilo(i);
+            hilo.start();
+            hilosLista.add(hilo);
+        }
+
+        for(Thread i : hilosLista){
+            try {
+                i.join();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
 }
