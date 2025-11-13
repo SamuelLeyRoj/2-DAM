@@ -1,0 +1,14 @@
+<ion-content>
+  <div class="mensajes">
+    <div *ngFor="let msg of mensajes">
+      <p>{{ msg }}</p>
+    </div>
+  </div>
+
+  <ion-footer class="input-footer">
+    <ion-item>
+      <ion-input [(ngModel)]="texto" placeholder="Escribe un mensaje..."></ion-input>
+      <ion-button (click)="enviar()">Enviar</ion-button>
+    </ion-item>
+  </ion-footer>
+</ion-content>

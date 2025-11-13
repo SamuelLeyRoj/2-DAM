@@ -23,4 +23,12 @@ export class ContactosPage  implements OnInit {
     this.navCtrl.navigateForward('/comprarRopa')
 
   }
+
+  irIntercambio(){
+    this.navCtrl.navigateForward('/intercambio')
+  }
+
+  irPrestamo(){
+    this.navCtrl.navigateForward('/prestamo')
+  }
 }

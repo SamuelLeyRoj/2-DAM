@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {IonContent} from "@ionic/angular/standalone";
-import {IonicModule, NavController} from "@ionic/angular";
+import {AlertController, IonicModule, NavController} from "@ionic/angular";
 import {MenuNavegacionComponent} from "../../componentes/menu-navegacion/menu-navegacion.component";
 import {BotonesNavegacionComponent} from "../../componentes/botones-navegacion/botones-navegacion.component";
 import {BotonGrandeAccionComponent} from "../../componentes/boton-grande-accion/boton-grande-accion.component";
@@ -13,19 +13,40 @@ import {BotonGrandeAccionComponent} from "../../componentes/boton-grande-accion/
   imports: [
 
     IonicModule,
-    MenuNavegacionComponent,
-    BotonesNavegacionComponent,
     BotonGrandeAccionComponent
   ]
 })
 export class RopaInformacionPage  implements OnInit {
 
-  // eslint-disable-next-line @angular-eslint/prefer-inject
-  constructor(private navCtrl: NavController) { }
+
+  constructor(
+    // eslint-disable-next-line @angular-eslint/prefer-inject
+    private navCtrl: NavController,
+    // eslint-disable-next-line @angular-eslint/prefer-inject
+    private alertController: AlertController
+  ) {}
+
 
   ngOnInit() {}
 
   irInicio(){
       this.navCtrl.navigateForward('/comprarRopa')
+  }
+
+  async irContactos() {
+    const alert = await this.alertController.create({
+      header: '¡Perfecto!',
+      message: 'Has elegido contactar por esta prenda.',
+      buttons: [
+        {
+          text: 'Aceptar',
+          handler: () => {
+            this.navCtrl.navigateForward('/contactos');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 }

@@ -3,6 +3,7 @@ import {IonButton, IonIcon, IonImg, IonInput, IonSelect, IonSelectOption} from "
 import {FormsModule} from "@angular/forms";
 import { CommonModule } from '@angular/common';
 import {BotonGrandeAccionComponent} from "../boton-grande-accion/boton-grande-accion.component";
+import {NavController} from "@ionic/angular";
 
 @Component({
   selector: 'app-formulario-subir-ropa',
@@ -16,7 +17,7 @@ import {BotonGrandeAccionComponent} from "../boton-grande-accion/boton-grande-ac
     IonImg,
     CommonModule,
     IonIcon,
-    BotonGrandeAccionComponent
+
   ]
 })
 export class FormularioSubirRopaComponent  implements OnInit {
@@ -25,12 +26,17 @@ export class FormularioSubirRopaComponent  implements OnInit {
   tallaSeleccionada: string | null = null;   // nueva variable para la talla
   tipoRopaSeleccionada: string | null = null; // nueva variable para el tipo de ropa
 
-  constructor() { }
+  // eslint-disable-next-line @angular-eslint/prefer-inject
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {}
 
   @ViewChild('inputImagen') inputImagen!: ElementRef<HTMLInputElement>;
   imagenPreview: string | ArrayBuffer | null = null;
+
+  volver(){
+    this.navCtrl.navigateForward('/comprarRopa')
+  }
 
   seleccionarImagen() {
     this.inputImagen.nativeElement.click(); // simula el click en el input oculto

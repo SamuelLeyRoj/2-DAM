@@ -1,7 +1,0 @@
-{
-  "name": "ChangeShop",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular-standalone"
-}

@@ -1,4 +1,4 @@
-<div class="ion-display-flex ion-justify-content-center">
+<div class="ion-display-flex ion-flex-column ion-align-items-center">
 
   <div style="gap: 3rem;margin-top: 15% " class="tarjeta ion-display-flex ion-flex-column ">
 
@@ -43,19 +43,24 @@
 
     <!-- Selección de Tipo de Ropa -->
     <div class="ion-display-flex ion-align-items-center ion-margin-start" style="justify-content: space-between; width: 100%; max-width: 400px;">
-      <h4 style="margin: 0;">Tipo ropa :</h4>
-      <ion-select [(ngModel)]="tipoRopaSeleccionada" interface="popover" placeholder="Selecciona tipo" style="flex: 1; margin-left: 1rem;">
+      <h4 style="margin: 0;padding-bottom: 10%">Tipo ropa :</h4>
+      <ion-select [(ngModel)]="tipoRopaSeleccionada" interface="popover" placeholder="Selecciona tipo" style="flex: 1; margin-left: 1rem;padding-bottom: 10%">
         <ion-select-option value="vintage">Vintage</ion-select-option>
         <ion-select-option value="moderno">Moderno</ion-select-option>
         <ion-select-option value="deportivo">Deportivo</ion-select-option>
         <ion-select-option value="elegante">Elegante</ion-select-option>
       </ion-select>
     </div>
-
-
-    <div>
-      <app-boton-grande-accion texto="Subir"></app-boton-grande-accion>
-    </div>
-
   </div>
+
+  <div style="width: 100%" class="ion-display-flex ion-flex-column ion-align-items-center ion-margin-top">
+    <button class="boton">
+      Subir
+    </button>
+
+    <button (click)="volver()" class="boton">
+      Volver
+    </button>
+  </div>
+
 </div>

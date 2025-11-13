@@ -9,6 +9,8 @@ import { ConocerGentePage } from './paginas/conocer-gente/conocer-gente.componen
 import { MisPrendasPage } from './paginas/mis-prendas/mis-prendas.component';
 import {RopaInformacionPage} from "./paginas/ropa-informacion/ropa-informacion.component";
 import {MisPrendasInicioPage} from "./paginas/mis-prendas-inicio/mis-prendas-inicio.component";
+import {IntercambioPage} from "./paginas/intercambio/intercambio.component";
+import {PrestamoPage} from "./paginas/prestamo/prestamo.component";
 
 export const routes: Routes = [
   { path: '', component: InicioPage },
@@ -22,4 +24,6 @@ export const routes: Routes = [
   { path: 'misPrendas', component: MisPrendasPage },
   { path: 'ropaInformacion', component: RopaInformacionPage },
   { path: 'misPrendasInicio', component: MisPrendasInicioPage },
+  { path: 'intercambio', component: IntercambioPage },
+  { path: 'prestamo', component: PrestamoPage },
 ];

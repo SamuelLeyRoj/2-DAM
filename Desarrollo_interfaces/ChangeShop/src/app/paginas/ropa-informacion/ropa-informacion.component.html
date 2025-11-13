@@ -1,43 +1,47 @@
-<ion-header>
-  <app-menu-navegacion></app-menu-navegacion>
-</ion-header>
-
-<ion-content>
-
-  <div style="width: 100%;margin-top: 11%" class="ion-display-flex ion-justify-content-center">
-    <div class="contenedor-centrado">
-
-      <div style="width: 100%;margin-top: 3%" class="ion-display-flex ion-align-items-center ion-flex-column">
-        <h3>Mathias Leyton</h3>
-      </div>
-
-      <div class="ion-display-flex ion-justify-content-center">
-        <img class="imagen" src="assets/img/morabeti.jpeg">
-      </div>
 
 
+  <ion-content>
 
-      <div style="margin-top: 15%" class="ion-display-flex ion-flex-column ion-margin-start ">
+    <div style="width: 100%;margin-top: 20%" class="ion-display-flex ion-justify-content-center">
+      <div class="contenedor-centrado">
 
-        <div class="ion-display-flex">
-          <h5>Estilo: Vintage</h5>
+        <div style="width: 100%;margin-top: 3%" class="ion-display-flex ion-align-items-center ion-flex-column">
+          <h3>Mathias Leyton</h3>
+        </div>
+
+        <div class="ion-display-flex ion-justify-content-center">
+          <img class="imagen" src="assets/img/morabeti.jpeg">
         </div>
 
 
-        <div class="ion-display-flex">
-          <h5>Talla: XL</h5>
-        </div>
+
+        <div style="margin-top: 15%" class="ion-display-flex ion-flex-column ion-margin-start ">
+
+          <div class="ion-display-flex">
+            <h5>Estilo: Vintage</h5>
+          </div>
 
 
-        <div class="ion-display-flex">
-          <h5>Estado: Perfecto</h5>
+          <div class="ion-display-flex">
+            <h5>Talla: XL</h5>
+          </div>
+
+
+          <div class="ion-display-flex">
+            <h5>Estado: Perfecto</h5>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
+      <div style="width: 100%" class="ion-display-flex ion-justify-content-center ion-margin-top">
+        <button  class="boton ion-margin-end" (click)="irContactos()" >Intercambio</button>
+        <button  class="boton" (click)="irContactos()" >Préstamo</button>
+      </div>
+    <app-boton-grande-accion texto="Volver" (click)="irInicio()" ></app-boton-grande-accion>
 
 
 
-</ion-content>
+  </ion-content>
 
-  <app-boton-grande-accion texto="Volver" (click)="irInicio()" ></app-boton-grande-accion>
+
