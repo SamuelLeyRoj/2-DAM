@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {IonButton, IonContent, IonFooter, IonInput, IonItem} from "@ionic/angular/standalone";
-import {FormsModule} from "@angular/forms";
-import {CommonModule} from '@angular/common';
+import { IonButton, IonContent, IonDatetime, IonFooter, IonInput, IonItem } from "@ionic/angular/standalone";
+import { FormsModule } from "@angular/forms";
+import { CommonModule } from '@angular/common';
+import { NavController } from "@ionic/angular";
 
 @Component({
   selector: 'app-intercambio',
@@ -9,12 +10,13 @@ import {CommonModule} from '@angular/common';
   styleUrls: ['./intercambio.component.scss'],
   standalone: true,
   imports: [
-    CommonModule,   // ✅ IMPORTANTE (para *ngFor)
+    CommonModule,
     IonContent,
     IonFooter,
     IonItem,
     IonInput,
     IonButton,
+    IonDatetime,
     FormsModule
   ]
 })
@@ -23,14 +25,20 @@ export class IntercambioPage implements OnInit {
   mensajes: string[] = [];
   texto: string = '';
 
-  constructor() {}
 
-  ngOnInit() {}
+  // eslint-disable-next-line @angular-eslint/prefer-inject
+  constructor(private navCtrl: NavController) {
+  }
+
+  ngOnInit() {
+  }
 
   enviar() {
-    if (this.texto.trim() !== '') {
-      this.mensajes.push(this.texto);
-      this.texto = '';
-    }
+
+    // Navegar a otra página si quieres
+    this.navCtrl.navigateForward('/intercambioConfirmar');
   }
 }
+
+
+

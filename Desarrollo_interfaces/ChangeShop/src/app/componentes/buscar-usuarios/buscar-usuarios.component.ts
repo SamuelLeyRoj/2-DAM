@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {
   IonAvatar,
   IonCard,
@@ -18,17 +18,8 @@ import {
   styleUrls: ['./buscar-usuarios.component.scss'],
   standalone: true,
   imports: [
-    IonCard,
-    IonCardContent,
-    IonCardHeader,
-    IonCardSubtitle,
-    IonCardTitle,
-    IonItem,
-    IonLabel,
-    IonList,
-    IonThumbnail,
+
     IonIcon,
-    IonAvatar,
   ],
 
 })
@@ -36,6 +27,9 @@ export class BuscarUsuariosComponent  implements OnInit {
 
   constructor() { }
 
+  @Input() nombreUsuario: string = "Usuario";
+
+  @Input() imagenUsuario: string = "assets/img/cuenta.png";
 
   ngOnInit() {}
 

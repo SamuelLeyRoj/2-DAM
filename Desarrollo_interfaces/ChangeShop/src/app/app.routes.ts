@@ -11,6 +11,8 @@ import {RopaInformacionPage} from "./paginas/ropa-informacion/ropa-informacion.c
 import {MisPrendasInicioPage} from "./paginas/mis-prendas-inicio/mis-prendas-inicio.component";
 import {IntercambioPage} from "./paginas/intercambio/intercambio.component";
 import {PrestamoPage} from "./paginas/prestamo/prestamo.component";
+import {IntercambioConfirmarPage} from "./paginas/intercambio-confirmar/intercambio-confirmar.component";
+import {PrestamoConfirmarPage} from "./paginas/prestamo-confirmar/prestamo-confirmar.component";
 
 export const routes: Routes = [
   { path: '', component: InicioPage },
@@ -26,4 +28,6 @@ export const routes: Routes = [
   { path: 'misPrendasInicio', component: MisPrendasInicioPage },
   { path: 'intercambio', component: IntercambioPage },
   { path: 'prestamo', component: PrestamoPage },
+  { path: 'intercambioConfirmar', component: IntercambioConfirmarPage },
+  { path: 'prestamoConfirmar', component: PrestamoConfirmarPage },
 ];

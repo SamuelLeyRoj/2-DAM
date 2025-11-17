@@ -12,6 +12,8 @@ import { IonicModule } from "@ionic/angular";
 export class BotonGrandeAccionComponent implements OnInit {
 
   @Input() texto: string = "Botón";
+  @Input() colorTexto: string = 'white';
+
 
   constructor() { }
 

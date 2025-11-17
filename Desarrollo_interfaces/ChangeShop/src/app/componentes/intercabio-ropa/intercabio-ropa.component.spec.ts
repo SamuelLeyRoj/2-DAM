@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { IntercambioPage } from './intercambio.component';
+import { IntercabioRopaComponent } from './intercabio-ropa.component';
 
-describe('IntercambioPage', () => {
-  let component: IntercambioPage;
-  let fixture: ComponentFixture<IntercambioPage>;
+describe('IntercabioRopaComponent', () => {
+  let component: IntercabioRopaComponent;
+  let fixture: ComponentFixture<IntercabioRopaComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [IntercambioPage],
+      imports: [IntercabioRopaComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(IntercambioPage);
+    fixture = TestBed.createComponent(IntercabioRopaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
