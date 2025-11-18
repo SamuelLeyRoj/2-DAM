@@ -1,4 +1,4 @@
-package com.safa.testspringboot.models;
+package com.safa.testspringboot.Models;
 
 import jakarta.persistence.*;
 import lombok.*;

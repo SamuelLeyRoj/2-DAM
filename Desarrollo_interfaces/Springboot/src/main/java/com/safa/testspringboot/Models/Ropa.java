@@ -1,7 +1,7 @@
-package com.safa.testspringboot.models;
+package com.safa.testspringboot.Models;
 
-import com.safa.testspringboot.enumerados.Estilo;
-import com.safa.testspringboot.enumerados.Talla;
+import com.safa.testspringboot.Enumerados.Estilo;
+import com.safa.testspringboot.Enumerados.Talla;
 import jakarta.persistence.*;
 import lombok.*;
 
