@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="IntercambioPrenda")
+@Table(name="intercambio_prenda")
 public class IntercambioPrenda {
 
     @Id

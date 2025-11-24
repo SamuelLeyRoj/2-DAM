@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Chat")
+@Table(name="chat")
 public class Chat {
 
     @Id

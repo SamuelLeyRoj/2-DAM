@@ -1,4 +1,4 @@
-package com.safa.testspringboot.Enumerados;
+package com.safa.testspringboot.Models;
 
 public enum Estilo {
     CASUAL,

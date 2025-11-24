@@ -1,7 +1,5 @@
 package com.safa.testspringboot.Models;
 
-import com.safa.testspringboot.Enumerados.Estilo;
-import com.safa.testspringboot.Enumerados.Talla;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Ropa")
+@Table(name="ropa")
 public class Ropa {
 
     @Id
