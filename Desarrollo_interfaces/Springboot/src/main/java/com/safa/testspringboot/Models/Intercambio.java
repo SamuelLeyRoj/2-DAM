@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Intercambio")
+@Table(name="intercambio")
 public class Intercambio {
 
     @Id

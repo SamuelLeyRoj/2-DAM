@@ -1,5 +1,8 @@
+CREATE DATABASE ChangeShop;
+USE ChangeShop;
+
 -- UsuarioSesion (registro/login)
-CREATE TABLE UsuarioSesion (
+CREATE TABLE usuario_sesion (
   id INT AUTO_INCREMENT PRIMARY KEY,
   email VARCHAR(150) UNIQUE NOT NULL,
   nombre_usuario VARCHAR(50) UNIQUE NOT NULL,
@@ -8,54 +11,54 @@ CREATE TABLE UsuarioSesion (
 );
 
 -- UsuarioPerfil (datos dentro de la app)
-CREATE TABLE UsuarioPerfil (
+CREATE TABLE usuario_perfil (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_auth INT UNIQUE NOT NULL,
   descripcion VARCHAR(255),
   foto_perfil VARCHAR(255),
   CONSTRAINT fk_usuario_perfil_auth
-    FOREIGN KEY (id_auth) REFERENCES UsuarioSesion(id)
+    FOREIGN KEY (id_auth) REFERENCES usuario_sesion(id)
     ON DELETE CASCADE
 );
 
 -- Ropa
-CREATE TABLE Ropa (
+CREATE TABLE ropa (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_usuario INT NOT NULL,
   nombre_prenda VARCHAR(150) NOT NULL,
-  estilo int not NULL,
+  estilo INT NOT NULL,
   foto VARCHAR(255),
   talla INT NOT NULL,
   estado VARCHAR(30) DEFAULT 'disponible',
   CONSTRAINT fk_ropa_usuario
-    FOREIGN KEY (id_usuario) REFERENCES UsuarioPerfil(id)
+    FOREIGN KEY (id_usuario) REFERENCES usuario_perfil(id)
     ON DELETE CASCADE
 );
 
 -- Intercambio
-CREATE TABLE Intercambio (
+CREATE TABLE intercambio (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_usuario_ofertante INT NOT NULL,
   id_usuario_solicitante INT NOT NULL,
   estado VARCHAR(30) DEFAULT 'solicitado',
   fecha_solicitud TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
   fecha_acuerdo TIMESTAMP,
-  FOREIGN KEY (id_usuario_ofertante) REFERENCES UsuarioPerfil(id),
-  FOREIGN KEY (id_usuario_solicitante) REFERENCES UsuarioPerfil(id)
+  FOREIGN KEY (id_usuario_ofertante) REFERENCES usuario_perfil(id),
+  FOREIGN KEY (id_usuario_solicitante) REFERENCES usuario_perfil(id)
 );
 
 -- IntercambioPrenda
-CREATE TABLE IntercambioPrenda (
+CREATE TABLE intercambio_prenda (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_intercambio INT NOT NULL,
   id_ropa INT NOT NULL,
   devolucion_esperada DATE,
-  FOREIGN KEY (id_intercambio) REFERENCES Intercambio(id) ON DELETE CASCADE,
-  FOREIGN KEY (id_ropa) REFERENCES Ropa(id)
+  FOREIGN KEY (id_intercambio) REFERENCES intercambio(id) ON DELETE CASCADE,
+  FOREIGN KEY (id_ropa) REFERENCES ropa(id)
 );
 
 -- Prestamo
-CREATE TABLE Prestamo (
+CREATE TABLE prestamo (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_usuario_prestador INT NOT NULL,
   id_usuario_receptor INT NOT NULL,
@@ -65,47 +68,47 @@ CREATE TABLE Prestamo (
   fecha_devolucion_real DATE,
   importe DECIMAL(10,2),
   estado VARCHAR(30) DEFAULT 'solicitado',
-  FOREIGN KEY (id_usuario_prestador) REFERENCES UsuarioPerfil(id),
-  FOREIGN KEY (id_usuario_receptor) REFERENCES UsuarioPerfil(id),
-  FOREIGN KEY (id_ropa) REFERENCES Ropa(id)
+  FOREIGN KEY (id_usuario_prestador) REFERENCES usuario_perfil(id),
+  FOREIGN KEY (id_usuario_receptor) REFERENCES usuario_perfil(id),
+  FOREIGN KEY (id_ropa) REFERENCES ropa(id)
 );
 
 -- Chat
-CREATE TABLE Chat (
+CREATE TABLE chat (
   id INT AUTO_INCREMENT PRIMARY KEY,
   tema VARCHAR(255),
   creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP()
 );
 
 -- ChatParticipantes
-CREATE TABLE ChatParticipantes (
+CREATE TABLE chat_participantes (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_chat INT NOT NULL,
   id_usuario INT NOT NULL,
   rol VARCHAR(50),
-  FOREIGN KEY (id_chat) REFERENCES Chat(id) ON DELETE CASCADE,
-  FOREIGN KEY (id_usuario) REFERENCES UsuarioPerfil(id) ON DELETE CASCADE
+  FOREIGN KEY (id_chat) REFERENCES chat(id) ON DELETE CASCADE,
+  FOREIGN KEY (id_usuario) REFERENCES usuario_perfil(id) ON DELETE CASCADE
 );
 
 -- Mensaje
-CREATE TABLE Mensaje (
+CREATE TABLE mensaje (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_chat INT NOT NULL,
   id_emisor INT NOT NULL,
   contenido TEXT NOT NULL,
   enviado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
   leido BOOLEAN DEFAULT FALSE,
-  FOREIGN KEY (id_chat) REFERENCES Chat(id) ON DELETE CASCADE,
-  FOREIGN KEY (id_emisor) REFERENCES UsuarioPerfil(id)
+  FOREIGN KEY (id_chat) REFERENCES chat(id) ON DELETE CASCADE,
+  FOREIGN KEY (id_emisor) REFERENCES usuario_perfil(id)
 );
 
 -- Notificacion
-CREATE TABLE Notificacion (
+CREATE TABLE notificacion (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_usuario_destino INT NOT NULL,
   tipo VARCHAR(100),
   mensaje TEXT,
   leido BOOLEAN DEFAULT FALSE,
   creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
-  FOREIGN KEY (id_usuario_destino) REFERENCES UsuarioPerfil(id) ON DELETE CASCADE
+  FOREIGN KEY (id_usuario_destino) REFERENCES usuario_perfil(id) ON DELETE CASCADE
 );
