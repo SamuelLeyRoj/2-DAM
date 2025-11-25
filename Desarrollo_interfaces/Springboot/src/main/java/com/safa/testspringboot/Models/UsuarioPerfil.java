@@ -15,11 +15,10 @@ public class UsuarioPerfil {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
     private Integer id;
 
     @OneToOne
-    @JoinColumn(name="id_auth", referencedColumnName="id")
+    @JoinColumn(name="id_auth", nullable = false, unique = true)
     private UsuarioSesion usuarioSesion;
 
     @Column(name="descripcion")
@@ -28,6 +27,10 @@ public class UsuarioPerfil {
     @Column(name="foto_perfil")
     private String fotoPerfil;
 
-    @OneToMany(mappedBy="usuario", cascade=CascadeType.ALL)
-    private List<Ropa> ropas;
+    @Enumerated(EnumType.STRING)
+    @Column(name="estilo")
+    private Estilo estilo;
+
+    @OneToMany(mappedBy="usuario", cascade = CascadeType.ALL)
+    private List<Ropa> ropaList;
 }

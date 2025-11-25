@@ -6,7 +6,6 @@ import com.safa.testspringboot.Models.UsuarioSesion;
 import com.safa.testspringboot.Repository.UsuarioSesionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
