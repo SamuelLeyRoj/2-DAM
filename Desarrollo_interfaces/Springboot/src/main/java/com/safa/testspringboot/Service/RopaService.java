@@ -1,7 +1,9 @@
 package com.safa.testspringboot.Service;
 
 import com.safa.testspringboot.Dto.RopaDto;
+import com.safa.testspringboot.Models.Estilo;
 import com.safa.testspringboot.Models.Ropa;
+import com.safa.testspringboot.Models.Talla;
 import com.safa.testspringboot.Models.UsuarioPerfil;
 import com.safa.testspringboot.Repository.RopaRepository;
 import com.safa.testspringboot.Repository.UsuarioPerfilRepository;
@@ -42,5 +44,24 @@ public class RopaService {
 
         return ropaRepository.save(ropa);
     }
+
+    public List<Ropa> filtrar(Estilo estilo, Talla talla, String estado) {
+        return ropaRepository.filtrar(estilo, talla, estado);
+    }
+
+    public Ropa actualizarRopa(Integer id, RopaDto dto) {
+        Ropa ropa = ropaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Prenda no encontrada"));
+
+        if (dto.getNombre() != null) ropa.setNombrePrenda(dto.getNombre());
+        if (dto.getEstilo() != null) ropa.setEstilo(dto.getEstilo());
+        if (dto.getFoto() != null) ropa.setFoto(dto.getFoto());
+        if (dto.getTalla() != null) ropa.setTalla(dto.getTalla());
+        if (dto.getEstado() != null) ropa.setEstado(dto.getEstado());
+
+        return ropaRepository.save(ropa);
+    }
+
+
 
 }

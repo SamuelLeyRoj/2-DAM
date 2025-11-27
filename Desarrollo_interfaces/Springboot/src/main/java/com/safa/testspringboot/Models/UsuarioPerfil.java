@@ -27,9 +27,6 @@ public class UsuarioPerfil {
     @Column(name="foto_perfil")
     private String fotoPerfil;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name="estilo")
-    private Estilo estilo;
 
     @OneToMany(mappedBy="usuario", cascade = CascadeType.ALL)
     private List<Ropa> ropaList;
