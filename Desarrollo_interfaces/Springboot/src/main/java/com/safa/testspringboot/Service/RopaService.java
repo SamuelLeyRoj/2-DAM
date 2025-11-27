@@ -1,6 +1,7 @@
 package com.safa.testspringboot.Service;
 
 import com.safa.testspringboot.Dto.RopaDto;
+import com.safa.testspringboot.Mapper.RopaMapper;
 import com.safa.testspringboot.Models.Estilo;
 import com.safa.testspringboot.Models.Ropa;
 import com.safa.testspringboot.Models.Talla;
@@ -9,59 +10,61 @@ import com.safa.testspringboot.Repository.RopaRepository;
 import com.safa.testspringboot.Repository.UsuarioPerfilRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
 @AllArgsConstructor
 public class RopaService {
 
-    private RopaRepository ropaRepository;
+    private final RopaRepository ropaRepository;
     private final UsuarioPerfilRepository usuarioPerfilRepository;
+    private final RopaMapper mapper;
 
-    public List<Ropa> obtenerTodos(){return ropaRepository.findAll();}
 
-    public Ropa getById(Integer id) {
-        return ropaRepository.findById(id).orElse(null);
+    public List<RopaDto> obtenerTodos() {
+        return mapper.convertirADTO(ropaRepository.findAll());
     }
 
-    public void borrar(Integer id) {
-        ropaRepository.deleteById(id);
+
+    public RopaDto getById(Integer id) {
+        Ropa ropa = ropaRepository.findById(id).orElse(null);
+        return mapper.convertirADTO(ropa);
     }
 
-    public Ropa crearRopa(RopaDto dto, Integer idUsuarioPerfil) {
 
+    public RopaDto crearRopa(RopaDto dto, Integer idUsuarioPerfil) {
         UsuarioPerfil usuario = usuarioPerfilRepository.findById(idUsuarioPerfil)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
-        Ropa ropa = new Ropa();
-        ropa.setNombrePrenda(dto.getNombre());
-        ropa.setEstilo(dto.getEstilo());
-        ropa.setFoto(dto.getFoto());
-        ropa.setTalla(dto.getTalla());
-        ropa.setEstado(dto.getEstado() != null ? dto.getEstado() : "disponible");
+        Ropa ropa = mapper.convertirAEntity(dto);
         ropa.setUsuario(usuario);
-
-        return ropaRepository.save(ropa);
+        ropa.setEstado(dto.getEstado() != null ? dto.getEstado() : "disponible");
+        Ropa saved = ropaRepository.save(ropa);
+        return mapper.convertirADTO(saved);
     }
 
-    public List<Ropa> filtrar(Estilo estilo, Talla talla, String estado) {
-        return ropaRepository.filtrar(estilo, talla, estado);
+    // Filtrar
+    public List<RopaDto> filtrar(Estilo estilo, Talla talla, String estado) {
+        List<Ropa> lista = ropaRepository.filtrar(estilo, talla, estado);
+        return mapper.convertirADTO(lista);
     }
 
-    public Ropa actualizarRopa(Integer id, RopaDto dto) {
+    // Actualizar
+    public RopaDto actualizarRopa(Integer id, RopaDto dto) {
         Ropa ropa = ropaRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Prenda no encontrada"));
 
-        if (dto.getNombre() != null) ropa.setNombrePrenda(dto.getNombre());
+        if (dto.getNombre() != null) ropa.setNombre(dto.getNombre());
         if (dto.getEstilo() != null) ropa.setEstilo(dto.getEstilo());
         if (dto.getFoto() != null) ropa.setFoto(dto.getFoto());
         if (dto.getTalla() != null) ropa.setTalla(dto.getTalla());
         if (dto.getEstado() != null) ropa.setEstado(dto.getEstado());
 
-        return ropaRepository.save(ropa);
+        return mapper.convertirADTO(ropaRepository.save(ropa));
     }
 
-
-
+    // Borrar
+    public void borrar(Integer id) {
+        ropaRepository.deleteById(id);
+    }
 }

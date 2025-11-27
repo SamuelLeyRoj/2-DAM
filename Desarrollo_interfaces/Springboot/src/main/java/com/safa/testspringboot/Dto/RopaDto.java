@@ -17,4 +17,5 @@
         private String foto;
         private Talla talla;
         private String estado;
+
     }

@@ -5,9 +5,11 @@ import com.safa.testspringboot.Models.Ropa;
 import com.safa.testspringboot.Models.Talla;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface RopaRepository extends JpaRepository<Ropa,Integer> {
 
     @Query("""

@@ -21,7 +21,7 @@ public class Ropa {
     private UsuarioPerfil usuario;
 
     @Column(name="nombre_prenda", nullable = false)
-    private String nombrePrenda;
+    private String nombre;
 
     @Enumerated(EnumType.STRING)
     @Column(name="estilo", nullable = false)
@@ -37,59 +37,5 @@ public class Ropa {
     @Column(name="estado")
     private String estado = "disponible";
 
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public UsuarioPerfil getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(UsuarioPerfil usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getNombrePrenda() {
-        return nombrePrenda;
-    }
-
-    public void setNombrePrenda(String nombrePrenda) {
-        this.nombrePrenda = nombrePrenda;
-    }
-
-    public Estilo getEstilo() {
-        return estilo;
-    }
-
-    public void setEstilo(Estilo estilo) {
-        this.estilo = estilo;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
-
-    public Talla getTalla() {
-        return talla;
-    }
-
-    public void setTalla(Talla talla) {
-        this.talla = talla;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
 }

@@ -1,6 +1,7 @@
 package com.safa.testspringboot.Service;
 
 import com.safa.testspringboot.Dto.UsuarioSesionDto;
+import com.safa.testspringboot.Mapper.UsuarioMapper;
 import com.safa.testspringboot.Models.UsuarioPerfil;
 import com.safa.testspringboot.Models.UsuarioSesion;
 import com.safa.testspringboot.Repository.UsuarioSesionRepository;
@@ -14,19 +15,24 @@ public class UsuarioSesionService {
 
     private UsuarioSesionRepository usuarioSesionRepository;
 
-    public List<UsuarioSesion> obtenerTodos(){return usuarioSesionRepository.findAll();}
+    private UsuarioMapper mapper;
 
-    public UsuarioSesion getById(Integer id) {
-        return usuarioSesionRepository.findById(id).orElse(null);
+    public List<UsuarioSesionDto> obtenerTodos(){
+        return mapper.convertirADTO(usuarioSesionRepository.findAll());
+    }
+
+    public UsuarioSesionDto getById(Integer id) {
+
+        return mapper.convertirADTO(usuarioSesionRepository.findById(id).orElse(null));
     }
 
     public void borrar(Integer id) {
         usuarioSesionRepository.deleteById(id);
     }
 
-    public UsuarioSesion crearUsuarioConPerfil(UsuarioSesionDto dto) {
+    public UsuarioSesionDto crearUsuarioConPerfil(UsuarioSesionDto dto) {
         UsuarioSesion usuario = new UsuarioSesion();
-        usuario.setNombreUsuario(dto.getNombre());
+        usuario.setNombre(dto.getNombre());
         usuario.setEmail(dto.getEmail());
         usuario.setContrasenia(dto.getContrasenia());
 
@@ -37,6 +43,6 @@ public class UsuarioSesionService {
 
         usuario.setPerfil(perfil);
 
-        return usuarioSesionRepository.save(usuario);
+        return mapper.convertirADTO(usuarioSesionRepository.save(usuario));
     }
 }

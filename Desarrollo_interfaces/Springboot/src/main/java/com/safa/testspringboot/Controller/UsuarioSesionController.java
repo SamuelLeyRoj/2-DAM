@@ -16,12 +16,12 @@
         private UsuarioSesionService usuarioSesionService;
 
         @GetMapping("/all")
-        public List<UsuarioSesion> obtenerTodosUsuarios() {
+        public List<UsuarioSesionDto> obtenerTodosUsuarios() {
             return usuarioSesionService.obtenerTodos();
         }
 
         @GetMapping("/usuarios/{id:\\d+}")
-        public UsuarioSesion obtenerPorId(@PathVariable Integer id) {
+        public UsuarioSesionDto obtenerPorId(@PathVariable Integer id) {
             return usuarioSesionService.getById(id);
         }
 
@@ -31,7 +31,7 @@
         }
 
         @PostMapping("/usuarios")
-        public UsuarioSesion crearUsuario(@RequestBody UsuarioSesionDto dto) {
+        public UsuarioSesionDto crearUsuario(@RequestBody UsuarioSesionDto dto) {
             return usuarioSesionService.crearUsuarioConPerfil(dto);
         }
 

@@ -23,7 +23,7 @@ public class UsuarioSesion {
     private String email;
 
     @Column(name="nombre_usuario", unique = true, nullable = false)
-    private String nombreUsuario;
+    private String nombre;
 
     @Column(name="contrasenia", nullable = false)
     private String contrasenia;
