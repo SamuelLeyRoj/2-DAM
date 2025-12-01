@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS usuario_sesion (
   fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP()
 );
 
--- UsuarioPerfil (datos dentro de la app)
+-- UsuarioPerfil (datos dentro de la app)	
 CREATE TABLE IF NOT EXISTS usuario_perfil (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_auth INT UNIQUE NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS ropa (
 CREATE TABLE IF NOT EXISTS intercambio (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_usuario_ofertante INT NOT NULL,
-  id_usuario_solicitante INT NOT NULL,
+  id_usuario_solicitante INT NOT null,
   id_ropa INT NOT NULL,              
   estado VARCHAR(30) DEFAULT 'solicitado',
   fecha_solicitud TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
@@ -51,6 +51,18 @@ CREATE TABLE IF NOT EXISTS intercambio (
   FOREIGN KEY (id_usuario_solicitante) REFERENCES usuario_perfil(id),
   FOREIGN KEY (id_ropa) REFERENCES ropa(id)
 );
+
+CREATE TABLE valoracion (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  id_intercambio INT NOT NULL,
+  id_usuario INT NOT NULL,      
+  puntuacion INT NOT NULL,
+  comentario VARCHAR(255),
+
+  FOREIGN KEY (id_intercambio) REFERENCES intercambio(id) ON DELETE CASCADE,
+  FOREIGN KEY (id_usuario) REFERENCES usuario_perfil(id) ON DELETE CASCADE
+);
+
 
 -- Prestamo
 CREATE TABLE IF NOT EXISTS prestamo (
