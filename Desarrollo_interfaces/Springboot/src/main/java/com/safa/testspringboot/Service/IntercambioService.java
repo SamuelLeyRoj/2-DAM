@@ -8,26 +8,35 @@ import com.safa.testspringboot.Models.UsuarioPerfil;
 import com.safa.testspringboot.Repository.IntercambioRepository;
 import com.safa.testspringboot.Repository.RopaRepository;
 import com.safa.testspringboot.Repository.UsuarioPerfilRepository;
-import com.safa.testspringboot.Repository.UsuarioSesionRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
 public class IntercambioService {
 
-    private IntercambioRepository intercambioRepository;
-    private UsuarioPerfilRepository usuarioPerfilRepository;
-    private RopaRepository ropaRepository;
-    private IntercambioMapper mapper;
+    private final IntercambioRepository intercambioRepository;
+    private final  UsuarioPerfilRepository usuarioPerfilRepository;
+    private final RopaRepository ropaRepository;
+    private final  IntercambioMapper mapper;
 
-    public void  crearIntercambio(IntercambioDto dto) {
+    public IntercambioDto crearIntercambio(IntercambioDto dto,Integer idUsuarioOfertante,Integer idUsuarioSolicitante,Integer idRopa) {
 
-        intercambioRepository.save(mapper.toEntity(dto));
+        UsuarioPerfil usuarioOfertante = usuarioPerfilRepository.findById(idUsuarioOfertante).orElse(null);
+        UsuarioPerfil usuarioSolicitante = usuarioPerfilRepository.findById(idUsuarioSolicitante).orElse(null);
+        Ropa ropa = ropaRepository.findById(idRopa).orElse(null);
+
+        Intercambio intercambio = mapper.toEntity(dto);
+        intercambio.setIdRopa(ropa);
+        intercambio.setIdUsuarioSolicitante(usuarioSolicitante);
+        intercambio.setIdUsuarioOfertante(usuarioOfertante);
+        Intercambio guardado = intercambioRepository.save(intercambio);
+
+        return mapper.toDTO(guardado);
+
+
 
     }
 }

@@ -9,11 +9,12 @@ import com.safa.testspringboot.Models.UsuarioPerfil;
 import com.safa.testspringboot.Repository.RopaRepository;
 import com.safa.testspringboot.Repository.UsuarioPerfilRepository;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class RopaService {
 
     private final RopaRepository ropaRepository;

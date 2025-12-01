@@ -1,7 +1,5 @@
 package com.safa.testspringboot.Models;
 
-import com.safa.testspringboot.Models.Ropa;
-import com.safa.testspringboot.Models.UsuarioPerfil;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
