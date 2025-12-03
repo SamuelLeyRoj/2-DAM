@@ -120,6 +120,8 @@ CREATE TABLE IF NOT EXISTS notificacion (
   FOREIGN KEY (id_usuario_destino) REFERENCES usuario_perfil(id) ON DELETE CASCADE
 );
 
+ALTER TABLE ropa MODIFY foto VARCHAR(1000);
+
 
 
 
