@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/ropa")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class RopaController {
 
     private final RopaService ropaService;
