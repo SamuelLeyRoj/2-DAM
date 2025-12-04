@@ -12,6 +12,6 @@ export class RopaService {
 
 
   consultarRopa(): Observable<Ropa[]> {
-    return this.http.get<Ropa[]>(`${this.apiUrl}/all`);  // Ahora será /api/ropa/all
+    return this.http.get<Ropa[]>(`${this.apiUrl}/all`);
   }
 }

@@ -1,6 +1,8 @@
 package com.safa.testspringboot.Service;
 
 import com.safa.testspringboot.Dto.UsuarioSesionDto;
+import com.safa.testspringboot.Exception.ElementoNoEncontradoException;
+import com.safa.testspringboot.Exception.EliminarNoExistenteException;
 import com.safa.testspringboot.Mapper.UsuarioMapper;
 import com.safa.testspringboot.Models.UsuarioPerfil;
 import com.safa.testspringboot.Models.UsuarioSesion;
@@ -23,11 +25,29 @@ public class UsuarioSesionService {
 
     public UsuarioSesionDto getById(Integer id) {
 
-        return mapper.convertirADTO(usuarioSesionRepository.findById(id).orElse(null));
+        UsuarioSesion usuarioSesion = usuarioSesionRepository.findById(id).orElse(null);
+
+        if (usuarioSesion == null) {
+
+            throw new ElementoNoEncontradoException("El usuario no existe");
+
+        }else {
+            return mapper.convertirADTO(usuarioSesionRepository.findById(id).orElse(null));
+        }
+
     }
 
     public void borrar(Integer id) {
-        usuarioSesionRepository.deleteById(id);
+
+        UsuarioSesion usuarioSesion = usuarioSesionRepository.findById(id).orElse(null);
+
+        if (usuarioSesion == null) {
+
+            throw  new EliminarNoExistenteException("No se puede eliminar el usuario");
+        }else {
+            usuarioSesionRepository.deleteById(id);
+        }
+
     }
 
     public UsuarioSesionDto crearUsuarioConPerfil(UsuarioSesionDto dto) {

@@ -1,6 +1,7 @@
 package com.safa.testspringboot.Service;
 
 import com.safa.testspringboot.Dto.IntercambioDto;
+import com.safa.testspringboot.Exception.ElementoNoEncontradoException;
 import com.safa.testspringboot.Mapper.IntercambioMapper;
 import com.safa.testspringboot.Models.Intercambio;
 import com.safa.testspringboot.Models.Ropa;
@@ -36,8 +37,17 @@ public class IntercambioService {
 
         return mapper.toDTO(guardado);
 
-
-
     }
+
+    public IntercambioDto modificarEstado(Integer idIntercambio, String estado) {
+        Intercambio intercambio = intercambioRepository.findById(idIntercambio)
+                .orElseThrow(() -> new ElementoNoEncontradoException("El intercambio no existe"));
+
+        intercambio.setEstado(estado);
+        Intercambio actualizado = intercambioRepository.save(intercambio);
+
+        return mapper.toDTO(actualizado);
+    }
+
 }
 

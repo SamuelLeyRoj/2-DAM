@@ -25,4 +25,13 @@ public class IntercambioController {
 
     }
 
+
+
+    @PatchMapping("/modificar/{idIntercambio}/{estado}")
+    public IntercambioDto modificarEstado(@PathVariable Integer idIntercambio,
+                                          @PathVariable String estado){
+
+
+        return service.modificarEstado(idIntercambio, estado);
+    }
 }

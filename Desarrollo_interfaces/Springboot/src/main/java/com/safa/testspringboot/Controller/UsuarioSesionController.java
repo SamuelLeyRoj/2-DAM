@@ -20,17 +20,17 @@
             return usuarioSesionService.obtenerTodos();
         }
 
-        @GetMapping("/usuarios/{id:\\d+}")
+        @GetMapping("/consultar/{id}")
         public UsuarioSesionDto obtenerPorId(@PathVariable Integer id) {
             return usuarioSesionService.getById(id);
         }
 
-        @DeleteMapping("/usuarios/{id}")
+        @DeleteMapping("/borrar/{id}")
         public void eliminarUsuario(@PathVariable Integer id) {
             usuarioSesionService.borrar(id);
         }
 
-        @PostMapping("/usuarios")
+        @PostMapping("/crearUsuario")
         public UsuarioSesionDto crearUsuario(@RequestBody UsuarioSesionDto dto) {
             return usuarioSesionService.crearUsuarioConPerfil(dto);
         }
