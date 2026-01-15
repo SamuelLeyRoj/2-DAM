@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec292df8-127b-44ac-abd4-54ecd50976c1" name="Changes" comment="" />
+    <list default="true" id="c20e9fd2-629e-43b5-9c21-666b53d178a4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Acceso_Datos.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/.idea/DjangoProject.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/DjangoProject/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/DjangoProject/asgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/DjangoProject/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/DjangoProject/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/DjangoProject/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/Test/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/Test/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/Test/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/Test/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/Test/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/Test/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/Test/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/Test/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/templates/inicio.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asd.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
+  "customColor": "",
+  "associatedIndex": 7
 }]]></component>
-  <component name="ProjectId" id="37yCFCbjMShYLYxbWYxN9J7KAzo" />
+  <component name="ProjectId" id="38HmoBEvrQOnhK3Op3IpQazgQRs" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -21,42 +46,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "ai.playground.ignore.import.keys.banner.in.settings": "true",
-    "git-widget-placeholder": "main",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="Acceso_Datos" type="Python.DjangoServer" factoryName="Django server">
-      <module name="Acceso_Datos" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="RUN_TOOL" value="" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <method v="2" />
-    </configuration>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -67,16 +62,13 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ec292df8-127b-44ac-abd4-54ecd50976c1" name="Changes" comment="" />
-      <created>1767865817359</created>
+      <changelist id="c20e9fd2-629e-43b5-9c21-666b53d178a4" name="Changes" comment="" />
+      <created>1768465044470</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1767865817359</updated>
-      <workItem from="1767865818391" duration="126000" />
+      <updated>1768465044470</updated>
+      <workItem from="1768465046531" duration="109000" />
     </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
 </project>
