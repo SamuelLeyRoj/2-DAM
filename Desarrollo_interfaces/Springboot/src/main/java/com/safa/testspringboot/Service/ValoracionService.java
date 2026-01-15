@@ -11,7 +11,6 @@ import com.safa.testspringboot.Repository.UsuarioPerfilRepository;
 import com.safa.testspringboot.Repository.ValoracionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
