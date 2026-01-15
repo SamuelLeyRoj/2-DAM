@@ -1,21 +1,31 @@
-    package com.safa.testspringboot.Dto;
+package com.safa.testspringboot.Dto;
 
-    import com.safa.testspringboot.Models.Estilo;
-    import com.safa.testspringboot.Models.Talla;
-    import jakarta.persistence.criteria.CriteriaBuilder;
-    import lombok.AllArgsConstructor;
-    import lombok.Data;
-    import lombok.NoArgsConstructor;
+import com.safa.testspringboot.Models.Estilo;
+import com.safa.testspringboot.Models.Talla;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    public class RopaDto {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class RopaDto {
 
-        private String nombre;
-        private Estilo estilo;
-        private String foto;
-        private Talla talla;
-        private String estado;
+    private Integer id;
 
-    }
+    @NotBlank(message = "El nombre de la prenda no puede estar vacío")
+    private String nombre;
+
+    @NotNull(message = "Debes indicar un estilo")
+    private Estilo estilo;
+
+    private String foto;
+
+    @NotNull(message = "Debes indicar una talla")
+    private Talla talla;
+
+    @NotBlank(message = "El estado no puede estar vacío")
+    private String estado;
+}

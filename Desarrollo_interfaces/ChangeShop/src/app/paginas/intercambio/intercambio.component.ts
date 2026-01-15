@@ -13,7 +13,6 @@ import { NavController } from "@ionic/angular";
     CommonModule,
     IonContent,
     IonFooter,
-    IonItem,
     IonInput,
     IonButton,
     IonDatetime,
@@ -22,7 +21,10 @@ import { NavController } from "@ionic/angular";
 })
 export class IntercambioPage implements OnInit {
 
-  mensajes: string[] = [];
+  mensajes = [
+    { texto: 'Hola', esMio: false },
+    { texto: '¿Qué tal?', esMio: true }
+  ];
   texto: string = '';
 
 
@@ -37,6 +39,10 @@ export class IntercambioPage implements OnInit {
 
     // Navegar a otra página si quieres
     this.navCtrl.navigateForward('/intercambioConfirmar');
+  }
+
+  enviarMensaje() {
+    this.mensajes.push({ texto: this.texto, esMio: true });
   }
 }
 

@@ -24,3 +24,35 @@ button{
   width: 75%;
   height: 120px;
 }
+.contenedorShop {
+  background-color: rgba(0, 0, 0, 0.69);
+  border-radius: 12px;
+  height: 540px;
+  width: 95%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  margin-left: 10px;
+}
+
+
+
+.contenedorShopDentro{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 73% 27%;
+
+
+}
+
+.contenedorShopDentroAbajo{
+  height: 100%;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.images{
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}

@@ -1,9 +1,79 @@
-button{
-  width: 60%;
-  height: 40px;
-  font-size: 20px;
-  border-radius: 15px;
-  font-family: "Arial Black";
-  color: white;
-  background-color: rgba(131, 80, 242, 1);
+// Fondo blanco limpio
+.chat-content {
+  --background: #ffffff;
+}
+
+// Contenedor de los mensajes
+.mensajes {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+// --- ESTILOS DE FILA (Alineación) ---
+.msg-row {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start; // Por defecto a la izquierda (el otro)
+
+  .burbuja {
+    background: #ffffff;
+    color: #000;
+    border: 1px solid #dbdbdb; // Borde gris fino
+    border-radius: 22px;
+    padding: 10px 16px;
+    max-width: 75%;
+    font-size: 15px;
+    position: relative;
+    word-wrap: break-word;
+  }
+}
+
+// --- ESTILO "MÍO" (Alineación Derecha) ---
+.msg-row.mio {
+  justify-content: flex-end; // A la derecha
+
+  .burbuja {
+    background: #efefef; // Gris claro (típico IG para mensajes propios)
+    border: none;
+    color: #000;
+  }
+}
+
+// --- EL FOOTER (INPUT) ---
+ion-footer {
+  background: #ffffff;
+  padding: 10px;
+}
+
+.input-area {
+  display: flex;
+  justify-content: center;
+}
+
+.input-pill {
+  background: #f0f0f0; // Fondo gris de la cápsula
+  border-radius: 25px; // Muy redondo
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 5px;
+  width: 100%;
+  border: 1px solid #dbdbdb;
+  height: 44px; // Altura fija para que se vea elegante
+}
+
+.custom-input {
+  --padding-start: 0;
+  --background: transparent;
+  --placeholder-opacity: 0.6;
+}
+
+// Ajuste opcional para tu datetime para que no rompa todo
+.mi-calendario {
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: block; // Centrarlo
 }

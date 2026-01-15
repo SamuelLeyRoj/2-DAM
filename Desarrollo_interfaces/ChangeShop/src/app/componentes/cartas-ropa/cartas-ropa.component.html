@@ -1,26 +1,46 @@
 <div class="ion-display-flex ion-justify-content-center ion-margin" *ngFor="let r of ropa">
 
+  <div class="contenedorShop" (click)="irInformacionRopa()">
 
- <div class="contenedorShop" (click)="irInformacionRopa()">
+    <div class="contenedorShopDentro">
+      <div style="display: flex; align-items: center; justify-content: center;">
+        <img class="images" [src]="r.foto" alt="ropa">
+      </div>
 
-  <div class="contenedorShopDentro">
-    <div style="display: flex;align-items: center;justify-content: center;">
-       <img class="images" [src]="r.foto">
-    </div>
-    <div class="ion-display-flex ion-flex-column ion-justify-content-center ion-align-items-center ">
+      <div class="ion-display-flex ion-flex-column ion-justify-content-center ion-align-items-center ">
         <div class="ion-display-flex ion-justify-content-center ion-align-items-center ion-margin-bottom " style="width: 100%">
-        <h5>{{r.nombre}} (</h5>  <h4>{{r.estilo}}</h4> <h4>)</h4>
+          <h5>{{r.nombre}} (</h5>
+          <h4>{{r.estilo}}</h4>
+          <h4>)</h4>
         </div>
 
-      <div class="ion-margin-bottom">
-        <ion-icon class="imgestrellas" style="color: yellow" name="star"></ion-icon>
-        <ion-icon class="imgestrellas" style="color: yellow" name="star"></ion-icon>
-        <ion-icon class="imgestrellas" style="color: yellow" name="star"></ion-icon>
-        <ion-icon class="imgestrellas" style="color: yellow" name="star"></ion-icon>
-        <ion-icon class="imgestrellas" style="color: yellow" name="star"></ion-icon>
+        <div class="ion-margin-bottom" style="display: flex; align-items: center; justify-content: center; width: 100%;">
+
+          <div style="display: flex;">
+            <ion-icon class="imgestrellas" style="color: yellow" name="star"></ion-icon>
+            <ion-icon class="imgestrellas" style="color: yellow" name="star"></ion-icon>
+            <ion-icon class="imgestrellas" style="color: yellow" name="star"></ion-icon>
+            <ion-icon class="imgestrellas" style="color: yellow" name="star"></ion-icon>
+            <ion-icon class="imgestrellas" style="color: yellow" name="star"></ion-icon>
+          </div>
+
+          <ion-button
+            fill="clear"
+            style="margin-left: 10px; z-index: 100;"
+            (click)="abrirEditar(r, $event)">
+            <ion-icon slot="icon-only" name="create-outline" color="primary" style="font-size: 24px;"></ion-icon>
+          </ion-button>
+
+          <ion-button
+            fill="clear"
+            style="margin-left: 0px; z-index: 100;"
+            (click)="borrarPrenda(r.id, $event)">
+            <ion-icon slot="icon-only" name="trash-outline" color="danger" style="font-size: 24px;"></ion-icon>
+          </ion-button>
+
+        </div>
 
       </div>
+    </div>
   </div>
- </div>
-</div>
 </div>

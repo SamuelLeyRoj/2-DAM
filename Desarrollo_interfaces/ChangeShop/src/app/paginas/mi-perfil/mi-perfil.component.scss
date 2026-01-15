@@ -1,29 +1,114 @@
-h1{
-  color: black;
-  font-family: "Arial Black";
+// Fondo general suave (No blanco puro)
+.fondo-pro {
+  --background: #f8f9fa;
 }
 
-h4{
-  color: black;
-
+// Botón de volver flotante y minimalista
+.header-nav {
+  padding: 10px;
+}
+.btn-volver {
+  --color: #333;
 }
 
-
-.imgUsuario{
-  font-size: 150px;
-  margin-bottom: 20px;
+.contenedor-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px 40px 20px;
 }
 
-.imgFlecha{
-  font-size: 55px;
-  margin: 30%;
+// 1. Avatar con efecto "Pop"
+.avatar-container {
+  margin-top: 10px;
+  margin-bottom: 15px;
+
+  .imgUsuario {
+    font-size: 140px;
+    color: #222; // Negro suave
+    // Sombra suave debajo del icono
+    filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.15));
+  }
 }
 
-.boton_editar{
-  background-color: gray;
-  color: white;
-  border-radius: 15px;
+// 2. Nombre (Manteniendo tu estilo bold pero limpio)
+.nombre-usuario {
+  font-family: 'Arial Black', sans-serif; // Tu fuente preferida
+  font-size: 26px;
+  color: #1a1a1a;
+  text-align: center;
+  margin: 0 0 30px 0;
+  letter-spacing: -0.5px;
+}
+
+// 3. Tarjeta de Datos (Estilo iOS / Modern Android)
+.info-card {
+  background: #ffffff;
   width: 100%;
-  height: 50px;
-  font-family: "Arial Black";
+  border-radius: 20px;
+  padding: 25px;
+  // La sombra mágica que lo hace ver "Pro"
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.dato-item {
+  text-align: center;
+
+  .etiqueta {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #8e8e93; // Gris tipo Apple
+    letter-spacing: 1px; // Espaciado elegante
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .valor {
+    font-size: 17px;
+    color: #000;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .valor.grande {
+    font-size: 24px; // El número 0 se verá más grande
+    font-weight: bold;
+  }
+}
+
+// Línea finita para separar datos
+.separador {
+  height: 1px;
+  background: #f0f0f0;
+  width: 60%;
+  margin: 0 auto; // Centrado
+}
+
+// 4. Botón Personalizado
+.boton-container {
+  width: 100%;
+}
+
+.boton-pro {
+  background: #1a1a1a; // Negro elegante
+  color: white;
+  width: 100%;
+  height: 55px;
+  border-radius: 18px; // Bordes muy redondos
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  // Sombra suave negra debajo del botón
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform 0.2s; // Animación pequeña al pulsar
+
+  &:active {
+    transform: scale(0.98); // Se achica un poco al pulsar
+    opacity: 0.9;
+  }
 }

@@ -1,9 +1,14 @@
 package com.safa.testspringboot.Controller;
 
 import com.safa.testspringboot.Dto.IntercambioDto;
+import com.safa.testspringboot.Dto.RopaTopDto;
+import com.safa.testspringboot.Dto.UsuarioMasAceptadoDto;
 import com.safa.testspringboot.Service.IntercambioService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -33,5 +38,18 @@ public class IntercambioController {
 
 
         return service.modificarEstado(idIntercambio, estado);
+    }
+
+
+
+    @GetMapping("/top-ropa")
+    public List<RopaTopDto> top5Ropa() {
+        return service.getTop5RopaMasIntercambiada();
+    }
+
+
+    @GetMapping("UsuarioMasIntercambios")
+    public UsuarioMasAceptadoDto getUsuarioMasIntercambios() {
+        return service.getUsuarioConMasIntercambiosAceptados();
     }
 }

@@ -50,10 +50,15 @@ public class UsuarioSesionService {
 
     }
 
-    public UsuarioSesionDto crearUsuarioConPerfil(UsuarioSesionDto dto) {
+    public UsuarioSesionDto crearUsuarioConPerfil(UsuarioSesionDto dto) throws Exception {
         UsuarioSesion usuario = new UsuarioSesion();
         usuario.setNombre(dto.getNombre());
-        usuario.setEmail(dto.getEmail());
+        if (dto.getEmail().contains("@")){
+            usuario.setEmail(dto.getEmail());
+        }else {
+            throw new Exception("El Email no es valido");
+        }
+
         usuario.setContrasenia(dto.getContrasenia());
 
         UsuarioPerfil perfil = new UsuarioPerfil();

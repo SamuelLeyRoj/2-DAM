@@ -1,38 +1,40 @@
 <div class="ion-display-flex ion-flex-column ion-align-items-center">
 
-  <div style="gap: 3rem;margin-top: 15% " class="tarjeta ion-display-flex ion-flex-column ">
+  <div style="gap: 2rem; margin-top: 10%"
+       class="tarjeta ion-display-flex ion-flex-column">
 
     <div class="alinear">
-      <h3 style="margin: 0; margin-bottom: 15%;margin-top: 10%">Publicar foto:</h3>
+      <h3 style="margin: 0; margin-bottom: 0.5rem;">Nombre de la prenda:</h3>
+      <ion-input
+        type="text"
+        placeholder="Nombre: "
+        [(ngModel)]="nombrePrendaInput">
+      </ion-input>
+    </div>
 
-      <!-- Botón visible solo si NO hay imagen -->
-      <button *ngIf="!imagenPreview" (click)="seleccionarImagen()">
-        <ion-icon class="img" name="images-outline"></ion-icon>
-      </button>
+    <div class="alinear">
+      <h3 style="margin: 0; margin-bottom: 0.5rem;">URL de la imagen:</h3>
+      <ion-input
+        type="url"
+        placeholder="https://ejemplo.com/imagen.jpg"
+        [(ngModel)]="imagenUrl">
+      </ion-input>
 
-      <!-- Input de tipo archivo oculto -->
-      <input
-        type="file"
-        accept="image/*"
-        hidden
-        #inputImagen
-        (change)="onFileSelected($event)"
-      />
-
-      <!-- Vista previa de la imagen -->
-      <div *ngIf="imagenPreview" style="margin-top: 1rem;">
+      <div *ngIf="imagenUrl" style="margin-top: 1rem; text-align: center;">
         <ion-img
-          [src]="imagenPreview"
-          style="width: 200px; height: 200px; object-fit: cover; border-radius: 10px;"
-        ></ion-img>
+          [src]="imagenUrl"
+          style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; margin: 0 auto;">
+        </ion-img>
       </div>
     </div>
 
-    <!-- Selección de Talla -->
-
-    <div class="ion-display-flex ion-align-items-center ion-margin-start" style="justify-content: space-between; width: 100%; max-width: 400px;">
-      <h5 style="margin: 0;">Elegir Talla :</h5>
-      <ion-select [(ngModel)]="tallaSeleccionada" interface="popover" placeholder="Selecciona talla" style="flex: 1; margin-left: 1rem;">
+    <div class="ion-display-flex ion-align-items-center ion-margin-start"
+         style="justify-content: space-between; width: 100%; max-width: 400px;">
+      <h5 style="margin: 0;">Elegir Talla:</h5>
+      <ion-select [(ngModel)]="tallaSeleccionada"
+                  interface="popover"
+                  placeholder="Selecciona"
+                  style="flex: 1; margin-left: 1rem;">
         <ion-select-option value="XS">XS</ion-select-option>
         <ion-select-option value="S">S</ion-select-option>
         <ion-select-option value="M">M</ion-select-option>
@@ -41,24 +43,30 @@
       </ion-select>
     </div>
 
-    <!-- Selección de Tipo de Ropa -->
-    <div class="ion-display-flex ion-align-items-center ion-margin-start" style="justify-content: space-between; width: 100%; max-width: 400px;">
-      <h4 style="margin: 0;padding-bottom: 10%">Tipo ropa :</h4>
-      <ion-select [(ngModel)]="tipoRopaSeleccionada" interface="popover" placeholder="Selecciona tipo" style="flex: 1; margin-left: 1rem;padding-bottom: 10%">
-        <ion-select-option value="vintage">Vintage</ion-select-option>
-        <ion-select-option value="moderno">Moderno</ion-select-option>
-        <ion-select-option value="deportivo">Deportivo</ion-select-option>
-        <ion-select-option value="elegante">Elegante</ion-select-option>
+    <div class="ion-display-flex ion-align-items-center ion-margin-start"
+         style="justify-content: space-between; width: 100%; max-width: 400px;">
+      <h4 style="margin: 0;">Tipo ropa:</h4>
+      <ion-select [(ngModel)]="tipoRopaSeleccionada"
+                  interface="popover"
+                  placeholder="Selecciona"
+                  style="flex: 1; margin-left: 1rem;">
+        <ion-select-option value="CASUAL">Casual / Vintage</ion-select-option>
+        <ion-select-option value="URBANO">Urbano / Moderno</ion-select-option>
+        <ion-select-option value="DEPORTIVO">Deportivo</ion-select-option>
+        <ion-select-option value="ELEGANTE">Elegante</ion-select-option>
+        <ion-select-option value="FORMAL">Formal</ion-select-option>
       </ion-select>
     </div>
   </div>
 
-  <div style="width: 100%" class="ion-display-flex ion-flex-column ion-align-items-center ion-margin-top">
-    <button class="boton">
-      Subir
+  <div style="width: 100%; gap: 1rem;"
+       class="ion-display-flex ion-flex-column ion-align-items-center ion-margin-top">
+
+    <button class="boton" (click)="subirRopa()">
+      Subir Prenda
     </button>
 
-    <button (click)="volver()" class="boton">
+    <button class="boton" style="background-color: #666;" (click)="volver()">
       Volver
     </button>
   </div>

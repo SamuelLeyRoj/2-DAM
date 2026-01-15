@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="19f85653-0c39-40ef-aa03-0a49f8a818a9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/cartas-ropa/cartas-ropa.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/cartas-ropa/cartas-ropa.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/cartas-ropa/cartas-ropa.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/cartas-ropa/cartas-ropa.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/formulario-subir-ropa/formulario-subir-ropa.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/formulario-subir-ropa/formulario-subir-ropa.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/formulario-subir-ropa/formulario-subir-ropa.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/formulario-subir-ropa/formulario-subir-ropa.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/intercabio-ropa/intercabio-ropa.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/intercabio-ropa/intercabio-ropa.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/menu-navegacion/menu-navegacion.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/menu-navegacion/menu-navegacion.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/mi-ropa-intercambio-ypendientes/mi-ropa-intercambio-ypendientes.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/mi-ropa-intercambio-ypendientes/mi-ropa-intercambio-ypendientes.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/mi-ropa-intercambio-ypendientes/mi-ropa-intercambio-ypendientes.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/mi-ropa-intercambio-ypendientes/mi-ropa-intercambio-ypendientes.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/mi-ropa-intercambio-ypendientes/mi-ropa-intercambio-ypendientes.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/componentes/mi-ropa-intercambio-ypendientes/mi-ropa-intercambio-ypendientes.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/paginas/intercambio/intercambio.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/paginas/intercambio/intercambio.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/paginas/intercambio/intercambio.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/paginas/intercambio/intercambio.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/paginas/intercambio/intercambio.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/paginas/intercambio/intercambio.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/paginas/mi-perfil/mi-perfil.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/paginas/mi-perfil/mi-perfil.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/paginas/mi-perfil/mi-perfil.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/paginas/mi-perfil/mi-perfil.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/paginas/mi-perfil/mi-perfil.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/paginas/mi-perfil/mi-perfil.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/services/Ropa-Service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/ChangeShop/src/app/services/Ropa-Service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Controller/IntercambioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Controller/IntercambioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Controller/RopaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Controller/RopaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Controller/UsuarioSesionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Controller/UsuarioSesionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Controller/ValoracionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Controller/ValoracionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Dto/IntercambioDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Dto/IntercambioDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Dto/RopaDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Dto/RopaDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Dto/UsuarioSesionDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Dto/UsuarioSesionDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Dto/ValoracionDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Dto/ValoracionDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Models/Intercambio.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Models/Intercambio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Repository/IntercambioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Repository/IntercambioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Service/IntercambioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Service/IntercambioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Service/RopaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Service/RopaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Service/ValoracionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/java/com/safa/testspringboot/Service/ValoracionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desarrollo_interfaces/Springboot/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/PrincipalController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modelo/HiloCarrera.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modelo/PrincipalModell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Vista/principal.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SGE/odoo_entornos1/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../SGE/odoo_entornos1/compose.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="36cK7WX6uLe5eKxouVkfed1Pur2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.PruebaEJ7.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Cash/Documents/2-DAM/Programacion_de_servicios_y_procesos/ExamenPSP",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="19f85653-0c39-40ef-aa03-0a49f8a818a9" name="Changes" comment="" />
+      <created>1765300252699</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1765300252699</updated>
+      <workItem from="1765300254089" duration="4272000" />
+      <workItem from="1765391139578" duration="1211000" />
+      <workItem from="1765573766032" duration="9000" />
+      <workItem from="1765869988624" duration="3376000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

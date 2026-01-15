@@ -31,7 +31,7 @@ public class Intercambio {
     @Column(nullable = false)
     private String estado = "solicitado";
 
-    @Column(name = "fecha_solicitud", nullable = false)
+    @Column(name = "fecha_solicitud")
     private LocalDateTime fechaSolicitud = LocalDateTime.now();
 
     @Column(name = "fecha_acuerdo")

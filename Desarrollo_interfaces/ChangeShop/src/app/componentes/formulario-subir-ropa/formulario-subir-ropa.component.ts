@@ -1,9 +1,14 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {IonButton, IonIcon, IonImg, IonInput, IonSelect, IonSelectOption} from "@ionic/angular/standalone";
-import {FormsModule} from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import {
+  IonIcon,
+  IonImg, IonInput,
+  IonSelect,
+  IonSelectOption
+} from '@ionic/angular/standalone';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import {BotonGrandeAccionComponent} from "../boton-grande-accion/boton-grande-accion.component";
-import {NavController} from "@ionic/angular";
+import { NavController } from '@ionic/angular';
+import { RopaService } from '../../services/Ropa-Service';
 
 @Component({
   selector: 'app-formulario-subir-ropa',
@@ -16,42 +21,57 @@ import {NavController} from "@ionic/angular";
     FormsModule,
     IonImg,
     CommonModule,
-    IonIcon,
-
+    IonInput
   ]
 })
-export class FormularioSubirRopaComponent  implements OnInit {
+export class FormularioSubirRopaComponent implements OnInit {
 
-  frutasSeleccionadas = '';
-  tallaSeleccionada: string | null = null;   // nueva variable para la talla
-  tipoRopaSeleccionada: string | null = null; // nueva variable para el tipo de ropa
+  // Añadimos variable para el nombre
+  nombrePrendaInput: string = '';
+  imagenUrl: string = '';
+  tallaSeleccionada: string | null = null;
+  tipoRopaSeleccionada: string | null = null;
 
-  // eslint-disable-next-line @angular-eslint/prefer-inject
-  constructor(private navCtrl: NavController) { }
+  constructor(
+    private navCtrl: NavController,
+    private ropaService: RopaService
+  ) {}
 
   ngOnInit() {}
 
-  @ViewChild('inputImagen') inputImagen!: ElementRef<HTMLInputElement>;
-  imagenPreview: string | ArrayBuffer | null = null;
-
-  volver(){
-    this.navCtrl.navigateForward('/comprarRopa')
-  }
-
-  seleccionarImagen() {
-    this.inputImagen.nativeElement.click(); // simula el click en el input oculto
-  }
-
-  onFileSelected(event: Event) {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imagenPreview = reader.result; // guardamos la imagen para mostrarla
-      };
-      reader.readAsDataURL(file);
+  subirRopa() {
+    // Validamos que todos los campos tengan datos
+    if (!this.nombrePrendaInput || !this.imagenUrl || !this.tallaSeleccionada || !this.tipoRopaSeleccionada) {
+      alert('Por favor, completa todos los campos (Nombre, Foto, Talla y Estilo)');
+      return;
     }
+
+    const nuevaRopa = {
+      // Usamos el nombre del input
+      nombre: this.nombrePrendaInput,
+      foto: this.imagenUrl,
+      talla: this.tallaSeleccionada,
+      // Esto ahora enviará 'CASUAL', 'URBANO', etc. (lo que le gusta a tu BD)
+      estilo: this.tipoRopaSeleccionada,
+      estado: 'disponible'
+    };
+
+    console.log('Enviando datos:', nuevaRopa); // Para depurar
+
+    this.ropaService.crearRopa(nuevaRopa).subscribe({
+      next: () => {
+        alert('¡Prenda subida correctamente!');
+        this.navCtrl.navigateForward('/misPrendas');
+      },
+      error: err => {
+        console.error('Error al subir:', err);
+        // Muestra el mensaje real del servidor si existe
+        alert('Error al subir: ' + (err.error?.message || 'Revisa los datos'));
+      }
+    });
   }
 
+  volver() {
+    this.navCtrl.navigateForward('/comprarRopa');
+  }
 }

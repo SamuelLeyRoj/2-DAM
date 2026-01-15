@@ -1,6 +1,6 @@
 <div style="width: 100%" class="ion-display-flex ion-flex-column ion-align-items-center">
 
-  <div class="borderBottom">
+  <div class="borderBottom" style="margin-top: 15px">
     <h4>
       Intercambios pendientes
     </h4>
@@ -12,19 +12,38 @@
     </h4>
   </div>
 
-  <div class="borderBottom">
+  <div class="borderBottom ion-margin">
     <h4>
       Mis prendas
     </h4>
+
+    <div  class="contenedorShop" *ngFor="let r of ropa">
+
+      <div class="contenedorShopDentro">
+        <div style="display: flex;align-items: center;justify-content: center;">
+          <img class="images" [src]="r.foto">
+        </div>
+        <div class="ion-display-flex ion-flex-column ion-justify-content-center ion-align-items-center ">
+          <div class="ion-display-flex ion-justify-content-center ion-align-items-center ion-margin-bottom " style="width: 100%">
+            <h5>{{r.nombre}} (</h5>  <h4>{{r.estilo}}</h4> <h4>)</h4>
+          </div>
+
+          <div class="ion-margin-bottom">
+            <ion-icon class="imgestrellas" style="color: yellow" name="star"></ion-icon>
+            <ion-icon class="imgestrellas" style="color: yellow" name="star"></ion-icon>
+            <ion-icon class="imgestrellas" style="color: yellow" name="star"></ion-icon>
+            <ion-icon class="imgestrellas" style="color: yellow" name="star"></ion-icon>
+            <ion-icon class="imgestrellas" style="color: yellow" name="star"></ion-icon>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 
   <button (click)="irRopa()">
     <ion-icon class="icono" color="light" name="open-outline"></ion-icon>
   </button>
-
-
-
-
-
-
 </div>

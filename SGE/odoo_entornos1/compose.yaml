@@ -28,7 +28,7 @@ services:
       PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - odoo-data:/var/lib/odoo
-      - ./addons_alumnos:/mnt/extra-addons
+      - ./addons:/mnt/extra-addons      
       - ./odoo.conf:/etc/odoo/odoo.conf:ro
 
   pgadmin:

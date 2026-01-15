@@ -1,25 +1,32 @@
-<ion-content>
-  <div class="mensajes">
-    <div *ngFor="let msg of mensajes">
-      <p>{{ msg }}</p>
-    </div>
+<ion-content class="chat-content">
 
-    <div class="ion-display-flex ion-justify-content-center">
-      <button class="ion-margin-bottom ion-margin-top">
-        Acordar fecha
-      </button>
+  <div class="mensajes " style="margin-top: 50px">
+    <div *ngFor="let msg of mensajes" class="msg-row" [class.mio]="msg.esMio">
+      <div class="burbuja">
+        {{ msg.texto || msg }}
+      </div>
     </div>
   </div>
 
-  <!-- ion-datetime flotante para seleccionar fecha -->
-  <ion-datetime>
+  <ion-datetime class="mi-calendario"></ion-datetime>
 
-  </ion-datetime>
-
-  <ion-footer class="input-footer">
-    <ion-item>
-      <ion-input [(ngModel)]="texto" placeholder="Escribe un mensaje..."></ion-input>
-      <ion-button (click)="enviar()">Enviar</ion-button>
-    </ion-item>
-  </ion-footer>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <div class="input-area">
+    <div class="input-pill">
+      <ion-input
+        [(ngModel)]="texto"
+        placeholder="Escribe un mensaje..."
+        class="custom-input">
+      </ion-input>
+
+      <ion-button fill="clear" (click)="enviarMensaje()" [disabled]="!texto">
+        Enviar
+      </ion-button>
+    </div>
+  </div>
+  <div class="ion-display-flex ion-justify-content-end ion-margin-bottom">
+  <button (click)="enviar()" style="background-color: black;font-family: 'Arial Black';padding: 20px;border-radius: 15px;margin-top: 20px">Confirmar</button>
+  </div>
+</ion-footer>

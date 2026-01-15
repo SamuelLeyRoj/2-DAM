@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {IonIcon} from "@ionic/angular/standalone";
+import {IonButton, IonContent, IonIcon} from "@ionic/angular/standalone";
 import {NavController} from "@ionic/angular";
 
 @Component({
@@ -8,7 +8,9 @@ import {NavController} from "@ionic/angular";
   styleUrls: ['./mi-perfil.component.scss'],
   standalone: true,
   imports: [
-    IonIcon
+    IonIcon,
+    IonButton,
+    IonContent
   ]
 })
 export class MiPerfilPage  implements OnInit {
