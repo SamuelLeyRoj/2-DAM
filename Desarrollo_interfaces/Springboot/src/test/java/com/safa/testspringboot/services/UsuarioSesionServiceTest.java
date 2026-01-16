@@ -17,10 +17,11 @@ public class UsuarioSesionServiceTest {
     @Autowired
     private UsuarioSesionService usuarioSesionService;
 
-    @Test
-    @DisplayName("Test Crear Perfil Negativo")
-    public void TestCrearPerfil(){
 
+    //Test negativo
+    @Test
+    @DisplayName("Test Crear Perfil Negativo Email")
+    public void TestCrearPerfilEmail(){
 
         //GIVEN
 
@@ -36,6 +37,19 @@ public class UsuarioSesionServiceTest {
 
         Exception exception = assertThrows(Exception.class, () ->usuarioSesionService.crearUsuarioConPerfil(dto) );
         assertEquals("El Email no es valido", exception.getMessage());
+
+    }
+
+
+
+    //Test positivo
+    @Test
+    @DisplayName("")
+    public void testCrearPerfilContrasenia(){
+
+
+
+
 
     }
 }
