@@ -40,4 +40,8 @@ public class ValoracionService {
 
         valoracionRepository.save(valoracion);
     }
+
+    public void borrarTodo(){
+        valoracionRepository.deleteAll();
+    }
 }

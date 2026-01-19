@@ -29,7 +29,7 @@
         }
 
         @PostMapping("/crear/{idUsuario}")
-        public void crearRopa(@PathVariable Integer idUsuario,@Valid @RequestBody RopaDto dto) {
+        public void crearRopa(@PathVariable Integer idUsuario,@Valid @RequestBody RopaDto dto) throws Exception {
             ropaService.crearRopa(dto, idUsuario);
         }
 

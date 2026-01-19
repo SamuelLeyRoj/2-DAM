@@ -70,6 +70,9 @@ public class IntercambioService {
         return intercambioRepository.findUsuarioConMasIntercambiosAceptados();
     }
 
+    public void borrarTodo(){
+        intercambioRepository.deleteAll();
+    }
 
 }
 
