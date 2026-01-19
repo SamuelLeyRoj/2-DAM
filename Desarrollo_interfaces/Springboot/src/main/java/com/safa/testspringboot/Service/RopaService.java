@@ -1,9 +1,11 @@
 package com.safa.testspringboot.Service;
 
 import com.safa.testspringboot.Dto.RopaDto;
+import com.safa.testspringboot.Dto.UsuarioSesionDto;
 import com.safa.testspringboot.Exception.ElementoNoEncontradoException;
 import com.safa.testspringboot.Exception.EliminarNoExistenteException;
 import com.safa.testspringboot.Mapper.RopaMapper;
+import com.safa.testspringboot.Mapper.UsuarioMapper;
 import com.safa.testspringboot.Models.Estilo;
 import com.safa.testspringboot.Models.Ropa;
 import com.safa.testspringboot.Models.Talla;
@@ -32,10 +34,15 @@ public class RopaService {
         return mapper.convertirADTO(ropa);
     }
 
-    public void crearRopa(RopaDto dto, Integer idUsuarioPerfil) {
+    public void crearRopa(RopaDto dto, Integer idUsuarioPerfil) throws Exception {
         UsuarioPerfil usuario = usuarioPerfilRepository.findById(idUsuarioPerfil)
                 .orElseThrow(() -> new ElementoNoEncontradoException("Usuario no encontrado"));
 
+
+
+        if (dto.getTalla() == null) {
+            throw new Exception("La talla es obligatoria para crear una prenda");
+        }
         Ropa ropa = mapper.convertirAEntity(dto);
         ropa.setUsuario(usuario);
         ropa.setEstado(dto.getEstado() != null ? dto.getEstado() : "disponible");
@@ -69,4 +76,11 @@ public class RopaService {
         }
         ropaRepository.deleteById(id);
     }
+
+    public void borrarTodo(){
+        ropaRepository.deleteAll();
+    }
+
+
+
 }

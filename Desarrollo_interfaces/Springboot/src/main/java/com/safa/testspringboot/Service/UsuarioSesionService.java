@@ -70,4 +70,13 @@ public class UsuarioSesionService {
 
         return mapper.convertirADTO(usuarioSesionRepository.save(usuario));
     }
+
+
+    public UsuarioSesionDto consultarPorId(Integer id) {
+        return mapper.convertirADTO(usuarioSesionRepository.findById(id).orElse(null));
+    }
+
+    public void borrarTodo(){
+        usuarioSesionRepository.deleteAll();
+    }
 }
