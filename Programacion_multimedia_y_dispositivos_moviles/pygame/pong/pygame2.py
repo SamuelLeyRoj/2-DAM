@@ -1,24 +1,67 @@
 import pygame, sys
 
+def ball_animation():
+    global ball_speed_y, ball_speed_x
+    ball.x += ball_speed_x
+    ball.y += ball_speed_y
+
+    if ball.top <= 0 or ball.bottom >= screen_height:
+        ball_speed_y *= -1
+    if ball.left <= 0 or ball.right >= screen_width:
+        ball_speed_x *= -1
+
+    if ball.colliderect(player) or ball.colliderect(opponent):
+        ball_speed_x *= -1
+
+
+def player_animation():
+    player.y += player_speed
+    if player.top <= 0:
+        player.top = 0
+    if player.bottom >= screen_height:
+        player.bottom = screen_height
+
+def opponent_animation():
+    if opponent.centery < ball.centery:
+        opponent.y += opponent_speed
+    if opponent.centery > ball.centery:
+        opponent.y -= opponent_speed
+
+    if opponent.top <= 0:
+        opponent.top = 0
+    if opponent.bottom >= screen_height:
+        opponent.bottom = screen_height
+
+
 # General setup
 pygame.init()
 clock = pygame.time.Clock()
 
 # Setting up the main window
 screen_width = 1280
-screen_height = 960
+screen_height = 660
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption('Pong')
 
 
 # Rectángulos del juego (Posición X, Posición Y, Ancho, Alto)
 ball = pygame.Rect(screen_width/2 - 15, screen_height/2 - 15, 30, 30)
-player = pygame.Rect(screen_width - 20, screen_height/2 - 70, 10, 140)
-opponent = pygame.Rect(10, screen_height/2 - 70, 10, 140)
+player = pygame.Rect(screen_width - 20, screen_height/2 - 70, 20, 140)
+opponent = pygame.Rect(10, screen_height/2 - 70, 20, 140)
 
 # Colores
 bg_color = pygame.Color('grey12')
-light_grey = (200, 200, 200)
+light_grey = (144,213,255)
+
+background = pygame.image.load("img/sasuke.png").convert()
+background = pygame.transform.scale(background, (screen_width, screen_height))
+
+#Animaciones
+
+ball_speed_x = 7
+ball_speed_y = 7
+player_speed = 0
+opponent_speed = 7
 
 while True:
     # Handling input
@@ -28,10 +71,28 @@ while True:
             sys.exit()
 
 
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_DOWN:
+                player_speed += 7
+            if event.key == pygame.K_UP:
+                player_speed -= 7
+
+
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_DOWN:
+                player_speed -= 7
+            if event.key == pygame.K_UP:
+                player_speed += 7
+
+    ball_animation()
+    player_animation()
+    opponent_animation()
+
+
     #Visual
 
     # Visuals
-    screen.fill(bg_color)
+    screen.blit(background, (0, 0))
     pygame.draw.rect(screen, light_grey, player)
     pygame.draw.rect(screen, light_grey, opponent)
     pygame.draw.ellipse(screen, light_grey, ball)
