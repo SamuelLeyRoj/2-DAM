@@ -1,4 +1,4 @@
-import pygame, sys
+import pygame, sys, random
 
 def ball_animation():
     global ball_speed_y, ball_speed_x
@@ -8,7 +8,7 @@ def ball_animation():
     if ball.top <= 0 or ball.bottom >= screen_height:
         ball_speed_y *= -1
     if ball.left <= 0 or ball.right >= screen_width:
-        ball_speed_x *= -1
+        ball_restart()
 
     if ball.colliderect(player) or ball.colliderect(opponent):
         ball_speed_x *= -1
@@ -33,6 +33,21 @@ def opponent_animation():
         opponent.bottom = screen_height
 
 
+def ball_restart():
+
+    global ball_speed_x, ball_speed_y
+    if ball_speed_y < 16 and ball_speed_x < 16:
+
+        ball_speed_y += 2
+        ball_speed_x += 2
+
+    ball.center = (screen_width/2, screen_height/2)
+    ball_speed_y *= random.choice((1,-1))
+    ball_speed_x *= random.choice((-1,1))
+
+
+
+
 # General setup
 pygame.init()
 clock = pygame.time.Clock()
@@ -45,21 +60,26 @@ pygame.display.set_caption('Pong')
 
 
 # Rectángulos del juego (Posición X, Posición Y, Ancho, Alto)
-ball = pygame.Rect(screen_width/2 - 15, screen_height/2 - 15, 30, 30)
+ball = pygame.Rect(screen_width/2 - 15, screen_height/2 - 15, 40, 40)
 player = pygame.Rect(screen_width - 20, screen_height/2 - 70, 20, 140)
 opponent = pygame.Rect(10, screen_height/2 - 70, 20, 140)
 
 # Colores
 bg_color = pygame.Color('grey12')
-light_grey = (144,213,255)
+light_grey = (0,0,0)
 
-background = pygame.image.load("img/sasuke.png").convert()
+background = pygame.image.load("img/naruto.png").convert()
 background = pygame.transform.scale(background, (screen_width, screen_height))
+
+
+ball_image = pygame.image.load("img/rasengan.png").convert_alpha()
+ball_image = pygame.transform.scale(ball_image, (40, 40))
 
 #Animaciones
 
-ball_speed_x = 7
-ball_speed_y = 7
+
+ball_speed_x = 7 * random.choice((1,-1))
+ball_speed_y = 7 *random.choice((-1,1))
 player_speed = 0
 opponent_speed = 7
 
@@ -95,7 +115,7 @@ while True:
     screen.blit(background, (0, 0))
     pygame.draw.rect(screen, light_grey, player)
     pygame.draw.rect(screen, light_grey, opponent)
-    pygame.draw.ellipse(screen, light_grey, ball)
+    screen.blit(ball_image, ball)
     pygame.draw.aaline(screen, light_grey, (screen_width / 2, 0), (screen_width / 2, screen_height))
 
     # Updating the window
