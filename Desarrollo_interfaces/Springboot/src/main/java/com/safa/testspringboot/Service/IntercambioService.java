@@ -74,5 +74,10 @@ public class IntercambioService {
         intercambioRepository.deleteAll();
     }
 
+    public List<IntercambioDto> getIntercambios() {
+        List<Intercambio> intercambios = intercambioRepository.findAll();
+        return mapper.toDTOList(intercambios);
+    }
+
 }
 

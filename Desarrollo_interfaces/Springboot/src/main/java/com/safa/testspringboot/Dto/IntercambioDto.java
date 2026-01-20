@@ -28,6 +28,12 @@ public class IntercambioDto {
     @NotBlank(message = "El estado no puede estar vacío")
     private String estado;
 
+    public void setEstado(String nuevoEstado) {
+        if ("finalizado".equalsIgnoreCase(this.estado)) {
+            throw new IllegalStateException("No se puede cambiar el estado de un intercambio ya finalizado");
+        }
+        this.estado = nuevoEstado;
+    }
     private LocalDateTime fechaSolicitud;
     private LocalDateTime fechaAcuerdo;
 }

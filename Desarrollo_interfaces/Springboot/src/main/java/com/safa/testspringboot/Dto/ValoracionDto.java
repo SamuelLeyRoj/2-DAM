@@ -28,4 +28,12 @@ public class ValoracionDto {
 
     @NotNull(message = "Debes indicar el usuario")
     private Integer usuario;
+
+
+    public void setComentario(String comentario) {
+        if (comentario==null || comentario.length()==0) {
+            throw new IllegalStateException("No se puede introducir una valoración nula");
+        }
+        this.comentario = comentario;
+    }
 }

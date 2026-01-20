@@ -5,6 +5,7 @@ import com.safa.testspringboot.Dto.RopaDto;
 import com.safa.testspringboot.Dto.UsuarioSesionDto;
 import com.safa.testspringboot.Dto.ValoracionDto;
 import com.safa.testspringboot.Models.Estilo;
+import com.safa.testspringboot.Models.Ropa;
 import com.safa.testspringboot.Models.Talla;
 import com.safa.testspringboot.Service.IntercambioService;
 import com.safa.testspringboot.Service.RopaService;
@@ -20,9 +21,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Transactional
@@ -111,6 +113,7 @@ public class RopaServiceTest {
             // Intercambio 1: Maria (2) pide la Camiseta Retro (1) a Pepe (1)
             IntercambioDto inter1 = new IntercambioDto();
             inter1.setEstado("solicitado");
+
             // Parametros: DTO, idOfertante, idSolicitante, idRopa
             intercambioService.crearIntercambio(inter1, 1, 2, 1);
 
@@ -173,7 +176,6 @@ public class RopaServiceTest {
         }
 
 
- */
 
 
     @Test
@@ -195,4 +197,75 @@ public class RopaServiceTest {
 
     }
 
+
+
+    @Test
+    @DisplayName("Test Negativo 4 ")
+    public void testNegativo4() {
+
+        List<RopaDto> lista = new ArrayList<>(ropaService.obtenerTodos());
+
+        List<RopaDto> listaFiltrada = lista.stream()
+                .filter(x -> x.getTalla().equals("Maripili"))
+                .toList();
+
+
+        assertThrows(RuntimeException.class, () -> {
+            listaFiltrada.getFirst();
+        });
+
     }
+
+
+
+          @Test
+    @DisplayName("Test Positivo 4 ")
+    public void testPositivo4() {
+
+        List<RopaDto> lista = new ArrayList<>(ropaService.obtenerTodos());
+
+        List<RopaDto> listaFiltrada = lista.stream()
+                .filter(x -> x.getTalla().equals(Talla.M))
+                .toList();
+
+
+        assertThrows(RuntimeException.class, () -> {
+            listaFiltrada.getFirst();
+        });
+
+    }
+
+    @Test
+    @DisplayName("Test Negativo 5")
+    public void testNegativo5(){
+
+        RopaDto ropa = ropaService.getById(1);
+
+        assertThrows(Exception.class, ()->{
+            ropa.setNombre(null);
+        });
+
+    }
+
+
+
+
+        @Test
+    @DisplayName("Test Positivo 5")
+    public void testPositivo5() {
+
+
+        RopaDto ropa1 = ropaService.getById(1);
+        ropa1.setNombre("Camiseta Nike");
+        ropa1.setTalla(Talla.XS);
+        ropa1.setEstilo(Estilo.DEPORTIVO);
+
+        assertEquals("Camiseta Nike", ropa1.getNombre());
+        assertEquals(Talla.XS, ropa1.getTalla());
+        assertEquals(Estilo.DEPORTIVO, ropa1.getEstilo());
+
+    }
+
+ */
+
+}

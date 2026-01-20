@@ -5,6 +5,8 @@ import com.safa.testspringboot.Models.Intercambio;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import java.util.List;
+
 
 @Mapper(componentModel = "spring")
 public interface IntercambioMapper {
@@ -18,6 +20,7 @@ public interface IntercambioMapper {
     @Mapping(source = "idUsuarioSolicitante.id", target = "idUsuarioSolicitante")
     @Mapping(source = "idRopa.id", target = "idRopa")
     IntercambioDto toDTO(Intercambio entity);
+    List<IntercambioDto> toDTOList(List<Intercambio> entities);
 }
 
 

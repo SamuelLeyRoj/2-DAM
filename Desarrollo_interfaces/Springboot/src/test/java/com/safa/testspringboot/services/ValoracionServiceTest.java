@@ -1,36 +1,37 @@
 package com.safa.testspringboot.services;
 
-import com.safa.testspringboot.Dto.*;
+import com.safa.testspringboot.Dto.IntercambioDto;
+import com.safa.testspringboot.Dto.RopaDto;
+import com.safa.testspringboot.Dto.UsuarioSesionDto;
+import com.safa.testspringboot.Dto.ValoracionDto;
 import com.safa.testspringboot.Models.Estilo;
 import com.safa.testspringboot.Models.Talla;
-import com.safa.testspringboot.Models.UsuarioPerfil;
 import com.safa.testspringboot.Service.IntercambioService;
 import com.safa.testspringboot.Service.RopaService;
 import com.safa.testspringboot.Service.UsuarioSesionService;
 import com.safa.testspringboot.Service.ValoracionService;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Transactional
-public class UsuarioSesionServiceTest {
+public class ValoracionServiceTest {
 
-
     @Autowired
-    private UsuarioSesionService usuarioService;
+    UsuarioSesionService usuarioService;
     @Autowired
-    private RopaService ropaService;
+    RopaService ropaService;
     @Autowired
-    private IntercambioService intercambioService;
+    IntercambioService intercambioService;
     @Autowired
-    private ValoracionService valoracionService;
+    ValoracionService valoracionService;
 
     @BeforeEach
-
-
     void inicializarBaseDatos() throws Exception {
 
         UsuarioSesionDto user1 = new UsuarioSesionDto();
@@ -60,9 +61,6 @@ public class UsuarioSesionServiceTest {
         usuarioService.crearUsuarioConPerfil(user3);
 
 
-
-
-
         RopaDto ropa1 = new RopaDto();
         ropa1.setNombre("Camiseta Retro");
         ropa1.setEstilo(Estilo.CASUAL);
@@ -90,7 +88,6 @@ public class UsuarioSesionServiceTest {
         ropaService.crearRopa(ropa3, 1);
 
 
-
         IntercambioDto inter1 = new IntercambioDto();
         inter1.setEstado("solicitado");
 
@@ -105,7 +102,6 @@ public class UsuarioSesionServiceTest {
         IntercambioDto inter3 = new IntercambioDto();
         inter3.setEstado("finalizado");
         intercambioService.crearIntercambio(inter3, 1, 3, 3);
-
 
 
         ValoracionDto val1 = new ValoracionDto();
@@ -129,72 +125,20 @@ public class UsuarioSesionServiceTest {
 
 
 
-    /*
     @Test
-    @DisplayName("Test Negativo 1")
-    public void TestCrearPerfilEmail(){
+    @DisplayName("")
+    public void testNegativo8(){
 
+        ValoracionDto val67 = new ValoracionDto();
 
+        val67.setPuntuacion(5);
+        val67.setComentario("La ropa estaba un poco sucia");
 
-      List<UsuarioSesionDto> lista = new ArrayList<UsuarioSesionDto>();
-      lista.add(usuarioService.consultarPorId(2));
-      lista.get(0).setEmail("mariaemail.com");
-
-      assertFalse(lista.get(0).getEmail().contains("@"));
-
-    }
-
-
-
-
-    @Test
-    @DisplayName("Test Positivo 1")
-    public void TestRegistroUsuario() throws Exception {
-
-
-        UsuarioSesionDto usuarioSesion = new UsuarioSesionDto();
-        usuarioSesion.setFotoPerfil("foto_juan.jpg");
-        usuarioSesion.setEmail("samuasdasd@email.com");
-        usuarioSesion.setContrasenia("12345612312");
-        usuarioSesion.setDescripcion("La ropa estaba un poco usada");
-        usuarioSesion.setNombre("Samu");
-
-
-        usuarioService.crearUsuarioConPerfil(usuarioSesion);
-        List<UsuarioSesionDto> lista = new ArrayList<>(usuarioService.obtenerTodos());
-
-        assertEquals("Samu", lista.getLast().getNombre());
-
-
-    }
-
-
-
-
-    @Test
-    @DisplayName("Test Negativo 2")
-    public void testNoBuscarId(){
-
-        assertThrows(RuntimeException.class, () -> {
-            usuarioService.getById(55);
+        valoracionService.guardarValoracion(val67, 2, 1);
+        assertThrows(Exception.class, () -> {
+            val67.setComentario(null);
         });
 
-    }
-
-
-
-
-    @Test
-    @DisplayName("Test Positivo 2")
-    public void testBuscarNombre() {
-
-        List<UsuarioSesionDto> lista = new ArrayList<>(usuarioService.obtenerTodos());
-
-        assertEquals("Pepe", lista.get(0).getNombre());
 
     }
-
-     */
-
-
 }

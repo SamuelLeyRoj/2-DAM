@@ -28,4 +28,11 @@ public class RopaDto {
 
     @NotBlank(message = "El estado no puede estar vacío")
     private String estado;
+
+    public void setNombre(String nombre) {
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre de la prenda no puede ser nulo");
+        }
+        this.nombre = nombre;
+    }
 }

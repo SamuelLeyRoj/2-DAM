@@ -1,32 +1,40 @@
 package com.safa.testspringboot.services;
 
-import com.safa.testspringboot.Dto.*;
+import com.safa.testspringboot.Dto.IntercambioDto;
+import com.safa.testspringboot.Dto.RopaDto;
+import com.safa.testspringboot.Dto.UsuarioSesionDto;
+import com.safa.testspringboot.Dto.ValoracionDto;
 import com.safa.testspringboot.Models.Estilo;
 import com.safa.testspringboot.Models.Talla;
-import com.safa.testspringboot.Models.UsuarioPerfil;
 import com.safa.testspringboot.Service.IntercambioService;
 import com.safa.testspringboot.Service.RopaService;
 import com.safa.testspringboot.Service.UsuarioSesionService;
 import com.safa.testspringboot.Service.ValoracionService;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
-import org.springframework.beans.factory.annotation.Autowired;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 @SpringBootTest
 @Transactional
-public class UsuarioSesionServiceTest {
+public class IntercambioServiceTest {
 
-
     @Autowired
-    private UsuarioSesionService usuarioService;
+    UsuarioSesionService usuarioService;
     @Autowired
-    private RopaService ropaService;
+    RopaService ropaService;
     @Autowired
-    private IntercambioService intercambioService;
+    IntercambioService intercambioService;
     @Autowired
-    private ValoracionService valoracionService;
+    ValoracionService valoracionService;
 
     @BeforeEach
 
@@ -58,8 +66,6 @@ public class UsuarioSesionServiceTest {
         user3.setDescripcion("Solo intercambio formal");
         user3.setFotoPerfil("foto_juan.jpg");
         usuarioService.crearUsuarioConPerfil(user3);
-
-
 
 
 
@@ -127,74 +133,69 @@ public class UsuarioSesionServiceTest {
         valoracionService.guardarValoracion(val3, 3, 3);
     }
 
-
-
     /*
+
     @Test
-    @DisplayName("Test Negativo 1")
-    public void TestCrearPerfilEmail(){
+    @DisplayName("Test Negativo 6")
+    public void testNegativo6(){
+
+        IntercambioDto inter1 = new IntercambioDto();
+        inter1.setEstado("solicitado");
+        inter1.setFechaSolicitud(LocalDate.of(2026,1,20).atStartOfDay());
+        inter1.setFechaAcuerdo(LocalDate.of(2026,1,1).atStartOfDay());
+
+        intercambioService.crearIntercambio(inter1, 1, 2, 1);
 
 
 
-      List<UsuarioSesionDto> lista = new ArrayList<UsuarioSesionDto>();
-      lista.add(usuarioService.consultarPorId(2));
-      lista.get(0).setEmail("mariaemail.com");
+        assertTrue(inter1.getFechaSolicitud().isAfter(inter1.getFechaAcuerdo()));
+    }
 
-      assertFalse(lista.get(0).getEmail().contains("@"));
+     @Test
+    @DisplayName("Test Positivo 6")
+    public void testPositivo6(){
 
+        IntercambioDto inter2 = new IntercambioDto();
+        inter2.setEstado("solicitado");
+        inter2.setFechaSolicitud(LocalDate.of(2026,1,1).atStartOfDay());
+        inter2.setFechaAcuerdo(LocalDate.of(2026,1,20).atStartOfDay());
+
+        intercambioService.crearIntercambio(inter2, 2, 2, 3);
+
+
+        assertTrue(inter2.getFechaSolicitud().isBefore(inter2.getFechaAcuerdo()));
     }
 
 
+        @Test
+        @DisplayName("Test Negativo 7")
+        public void testNegativo7() {
 
+            List<IntercambioDto> lista67 = new ArrayList<>(intercambioService.getIntercambios());
 
-    @Test
-    @DisplayName("Test Positivo 1")
-    public void TestRegistroUsuario() throws Exception {
+            assertThrows(Exception.class, ()->
+                    lista67.get(2).setEstado("solicitado")
+                    );
 
-
-        UsuarioSesionDto usuarioSesion = new UsuarioSesionDto();
-        usuarioSesion.setFotoPerfil("foto_juan.jpg");
-        usuarioSesion.setEmail("samuasdasd@email.com");
-        usuarioSesion.setContrasenia("12345612312");
-        usuarioSesion.setDescripcion("La ropa estaba un poco usada");
-        usuarioSesion.setNombre("Samu");
-
-
-        usuarioService.crearUsuarioConPerfil(usuarioSesion);
-        List<UsuarioSesionDto> lista = new ArrayList<>(usuarioService.obtenerTodos());
-
-        assertEquals("Samu", lista.getLast().getNombre());
-
-
-    }
+        }
 
 
 
+        @Test
+        @DisplayName("Test Positivo 7")
+        void testPositivo7() {
 
-    @Test
-    @DisplayName("Test Negativo 2")
-    public void testNoBuscarId(){
+        List<IntercambioDto> lista2 = new ArrayList<>(intercambioService.getIntercambios());
 
-        assertThrows(RuntimeException.class, () -> {
-            usuarioService.getById(55);
-        });
+        lista2.get(0).setEstado("finalizado");
+        assertEquals(lista2.get(0),"finalizado");
 
     }
-
-
-
-
-    @Test
-    @DisplayName("Test Positivo 2")
-    public void testBuscarNombre() {
-
-        List<UsuarioSesionDto> lista = new ArrayList<>(usuarioService.obtenerTodos());
-
-        assertEquals("Pepe", lista.get(0).getNombre());
-
-    }
-
      */
+
+
+
+
 
 
 }

@@ -38,4 +38,7 @@ public class Ropa {
     private String estado = "disponible";
 
 
+
+
+
 }
