@@ -1,9 +1,8 @@
-package com.safa.testspringboot.services;
+package com.safa.testspringboot.services.Unitarios;
 
 import com.safa.testspringboot.Dto.*;
 import com.safa.testspringboot.Models.Estilo;
 import com.safa.testspringboot.Models.Talla;
-import com.safa.testspringboot.Models.UsuarioPerfil;
 import com.safa.testspringboot.Service.IntercambioService;
 import com.safa.testspringboot.Service.RopaService;
 import com.safa.testspringboot.Service.UsuarioSesionService;

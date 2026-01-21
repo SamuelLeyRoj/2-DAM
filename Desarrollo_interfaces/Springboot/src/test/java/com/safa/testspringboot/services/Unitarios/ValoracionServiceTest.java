@@ -1,4 +1,4 @@
-package com.safa.testspringboot.services;
+package com.safa.testspringboot.services.Unitarios;
 
 import com.safa.testspringboot.Dto.IntercambioDto;
 import com.safa.testspringboot.Dto.RopaDto;
@@ -12,20 +12,15 @@ import com.safa.testspringboot.Service.UsuarioSesionService;
 import com.safa.testspringboot.Service.ValoracionService;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Transactional
-public class IntercambioServiceTest {
+public class ValoracionServiceTest {
 
     @Autowired
     UsuarioSesionService usuarioService;
@@ -37,8 +32,6 @@ public class IntercambioServiceTest {
     ValoracionService valoracionService;
 
     @BeforeEach
-
-
     void inicializarBaseDatos() throws Exception {
 
         UsuarioSesionDto user1 = new UsuarioSesionDto();
@@ -68,7 +61,6 @@ public class IntercambioServiceTest {
         usuarioService.crearUsuarioConPerfil(user3);
 
 
-
         RopaDto ropa1 = new RopaDto();
         ropa1.setNombre("Camiseta Retro");
         ropa1.setEstilo(Estilo.CASUAL);
@@ -96,7 +88,6 @@ public class IntercambioServiceTest {
         ropaService.crearRopa(ropa3, 1);
 
 
-
         IntercambioDto inter1 = new IntercambioDto();
         inter1.setEstado("solicitado");
 
@@ -111,7 +102,6 @@ public class IntercambioServiceTest {
         IntercambioDto inter3 = new IntercambioDto();
         inter3.setEstado("finalizado");
         intercambioService.crearIntercambio(inter3, 1, 3, 3);
-
 
 
         ValoracionDto val1 = new ValoracionDto();
@@ -133,69 +123,22 @@ public class IntercambioServiceTest {
         valoracionService.guardarValoracion(val3, 3, 3);
     }
 
-    /*
+
 
     @Test
-    @DisplayName("Test Negativo 6")
-    public void testNegativo6(){
+    @DisplayName("")
+    public void testNegativo8(){
 
-        IntercambioDto inter1 = new IntercambioDto();
-        inter1.setEstado("solicitado");
-        inter1.setFechaSolicitud(LocalDate.of(2026,1,20).atStartOfDay());
-        inter1.setFechaAcuerdo(LocalDate.of(2026,1,1).atStartOfDay());
+        ValoracionDto val67 = new ValoracionDto();
 
-        intercambioService.crearIntercambio(inter1, 1, 2, 1);
+        val67.setPuntuacion(5);
+        val67.setComentario("La ropa estaba un poco sucia");
 
+        valoracionService.guardarValoracion(val67, 2, 1);
+        assertThrows(Exception.class, () -> {
+            val67.setComentario(null);
+        });
 
-
-        assertTrue(inter1.getFechaSolicitud().isAfter(inter1.getFechaAcuerdo()));
-    }
-
-     @Test
-    @DisplayName("Test Positivo 6")
-    public void testPositivo6(){
-
-        IntercambioDto inter2 = new IntercambioDto();
-        inter2.setEstado("solicitado");
-        inter2.setFechaSolicitud(LocalDate.of(2026,1,1).atStartOfDay());
-        inter2.setFechaAcuerdo(LocalDate.of(2026,1,20).atStartOfDay());
-
-        intercambioService.crearIntercambio(inter2, 2, 2, 3);
-
-
-        assertTrue(inter2.getFechaSolicitud().isBefore(inter2.getFechaAcuerdo()));
-    }
-
-
-        @Test
-        @DisplayName("Test Negativo 7")
-        public void testNegativo7() {
-
-            List<IntercambioDto> lista67 = new ArrayList<>(intercambioService.getIntercambios());
-
-            assertThrows(Exception.class, ()->
-                    lista67.get(2).setEstado("solicitado")
-                    );
-
-        }
-
-
-
-        @Test
-        @DisplayName("Test Positivo 7")
-        void testPositivo7() {
-
-        List<IntercambioDto> lista2 = new ArrayList<>(intercambioService.getIntercambios());
-
-        lista2.get(0).setEstado("finalizado");
-        assertEquals(lista2.get(0),"finalizado");
 
     }
-     */
-
-
-
-
-
-
 }

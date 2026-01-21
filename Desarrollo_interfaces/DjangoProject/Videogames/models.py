@@ -50,7 +50,7 @@ class Ranking(models.Model):
         managed = False
 
     def __str__(self):
-        return self.nombre
+        return self.usuario
 
 
 

@@ -1,30 +1,19 @@
-package com.safa.testspringboot.services;
+package com.safa.testspringboot.services.Unitarios;
 
 import com.safa.testspringboot.Dto.IntercambioDto;
 import com.safa.testspringboot.Dto.RopaDto;
 import com.safa.testspringboot.Dto.UsuarioSesionDto;
 import com.safa.testspringboot.Dto.ValoracionDto;
 import com.safa.testspringboot.Models.Estilo;
-import com.safa.testspringboot.Models.Ropa;
 import com.safa.testspringboot.Models.Talla;
 import com.safa.testspringboot.Service.IntercambioService;
 import com.safa.testspringboot.Service.RopaService;
 import com.safa.testspringboot.Service.UsuarioSesionService;
 import com.safa.testspringboot.Service.ValoracionService;
 import jakarta.transaction.Transactional;
-import jakarta.validation.constraints.Null;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Transactional
