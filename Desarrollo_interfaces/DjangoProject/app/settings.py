@@ -95,7 +95,7 @@ DATABASES = {
     }
 }
 
-DATABASE_ROUTERS = ['Videogames.db_routers.MongoRouter']
+
 
 
 # Password validation
@@ -136,4 +136,5 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "node_modules",
+    BASE_DIR / "static",
 ]

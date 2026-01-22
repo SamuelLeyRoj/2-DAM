@@ -21,6 +21,7 @@ from Videogames import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.cargarJuegos,name='home'),
+    path('',views.cargarInicio,name='home'),
+    path('cargarDatos/',views.cargarJuegos,name='cargarJuegos'),
 
 ]

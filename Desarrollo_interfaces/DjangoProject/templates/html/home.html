@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/home.css">
+</head>
+<body>
+
+<div class="container-fluid carrusel" >
+    <div id="carouselExampleSlidesOnly"
+     class="carousel slide"
+     data-bs-ride="carousel"
+     data-bs-interval="2000"
+     data-bs-pause="false">
+        <div class="carousel-inner position-relative">
+
+            <!-- Contenido estático encima del carrusel -->
+            <div class="position-absolute contenedorCentro">
+                <h1>Texto Estático</h1>
+                <p>Subtítulo que siempre se ve</p>
+                <a href="#" class="btn btn-primary">Botón</a>
+            </div>
+
+            <!-- Slides del carrusel -->
+            <div class="carousel-item active">
+                <img src="{% static '../../static/img/FondoDevilMayCry.jpg' %}" class="d-block w-100" alt="Slide 1">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static '../../static/img/FondoArk.jpg' %}" class="d-block w-100" alt="Slide 2">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static '../../static/img/FondoDarkSouls.jpg' %}" class="d-block w-100" alt="Slide 3">
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

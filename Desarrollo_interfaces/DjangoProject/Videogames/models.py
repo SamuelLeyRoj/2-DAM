@@ -1,7 +1,9 @@
 import datetime
 
+from django.utils import timezone
 from django_mongodb_backend.fields import ArrayField
 from django.db import models
+
 
 # Create your models here.
 class Juego(models.Model):
@@ -42,7 +44,7 @@ class Categoria(models.Model):
 class Ranking(models.Model):
 
     usuario= models.CharField(max_length=150)
-    rankingFecha = models.DateField(default=datetime.datetime.now())
+    rankingFecha = models.DateTimeField(default=timezone.now)
     categoriaCodigo = models.IntegerField(null=False)
 
     class Meta:
