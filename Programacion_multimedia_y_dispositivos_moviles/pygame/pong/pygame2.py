@@ -48,6 +48,8 @@ def pantallaFin():
     pygame.display.flip()
     # Esperar 3 segundos antes de cerrar
     pygame.time.delay(3000)
+    pygame.quit()
+    sys.exit()
 
 
 
@@ -77,6 +79,18 @@ def ball_restart():
     ball_speed_y *= random.choice((1,-1))
     ball_speed_x *= random.choice((-1,1))
 
+def pantallaInicio():
+    mostrado = True
+
+    pantallaInformacion = pygame.Rect(screen_width/2,screen_height/2,1280,660)
+    pygame.draw.rect(screen, (255, 255, 255), pantallaInformacion)
+
+    if event.key == pygame.K_RETURN:  # Enter
+        mostrado = False  # salir de la pantalla de inicio
+
+
+
+
 # General setup
 pygame.init()
 pong_sound = pygame.mixer.Sound("pong.ogg")
@@ -94,7 +108,7 @@ game_font = pygame.font.Font(None, 50)
 ball = pygame.Rect(screen_width/2 - 15, screen_height/2 - 15, 60, 60)
 player = pygame.Rect(screen_width - 20, screen_height/2 - 70, 20, 140)
 opponent = pygame.Rect(10, screen_height/2 - 70, 20, 140)
-pantallaFinal = pygame.Rect(screen_width/2,screen_height/2,500,200)
+pantallaFinal = pygame.Rect(0,0,1280,660)
 texto_final = game_font.render("HAS PERDIDO", True, (255, 0, 0))  # rojo
 texto_rect = texto_final.get_rect(center=pantallaFinal.center)
 
@@ -125,11 +139,16 @@ vidasPlayer2 = 5
 
 sonidoFondo.set_volume(0.1)
 sonidoFondo.play(-1)
+
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+
+
+
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_DOWN:
                 player_speed += 7
