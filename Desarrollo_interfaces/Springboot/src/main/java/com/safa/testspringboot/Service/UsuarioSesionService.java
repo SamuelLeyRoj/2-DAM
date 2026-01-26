@@ -8,6 +8,7 @@ import com.safa.testspringboot.Models.UsuarioPerfil;
 import com.safa.testspringboot.Models.UsuarioSesion;
 import com.safa.testspringboot.Repository.UsuarioSesionRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class UsuarioSesionService {
 
     private UsuarioSesionRepository usuarioSesionRepository;
 
+    @Qualifier("usuarioMapper")
     private UsuarioMapper mapper;
 
     public List<UsuarioSesionDto> obtenerTodos(){
@@ -25,17 +27,12 @@ public class UsuarioSesionService {
 
     public UsuarioSesionDto getById(Integer id) {
 
-        UsuarioSesion usuarioSesion = usuarioSesionRepository.findById(id).orElse(null);
+        UsuarioSesion usuarioSesion = usuarioSesionRepository.findById(id)
+                .orElseThrow(() -> new ElementoNoEncontradoException("El usuario no existe"));
 
-        if (usuarioSesion == null) {
-
-            throw new ElementoNoEncontradoException("El usuario no existe");
-
-        }else {
-            return mapper.convertirADTO(usuarioSesionRepository.findById(id).orElse(null));
-        }
-
+        return mapper.convertirADTO(usuarioSesion);
     }
+
 
     public void borrar(Integer id) {
 
@@ -78,5 +75,9 @@ public class UsuarioSesionService {
 
     public void borrarTodo(){
         usuarioSesionRepository.deleteAll();
+    }
+
+    public UsuarioSesionDto consultarPorNombre(String nombreBuscado) {
+        return mapper.convertirADTO(usuarioSesionRepository.findByNombre(nombreBuscado).orElse(null));
     }
 }

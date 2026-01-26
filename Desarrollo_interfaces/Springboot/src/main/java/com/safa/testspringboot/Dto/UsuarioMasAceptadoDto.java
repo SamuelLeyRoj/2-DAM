@@ -16,4 +16,15 @@ public class UsuarioMasAceptadoDto {
     private String nombreUsuario;
 
     private Long totalIntercambios;
+
+    public UsuarioMasAceptadoDto() {
+
+    }
+
+    public String getNombre() {
+        return nombreUsuario;
+    }
+    public void setNombre(String nombre) {
+        this.nombreUsuario = nombre;
+    }
 }

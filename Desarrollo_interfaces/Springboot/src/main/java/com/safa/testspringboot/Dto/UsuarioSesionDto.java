@@ -24,4 +24,5 @@ public class UsuarioSesionDto {
     private String descripcion;
 
     private String fotoPerfil;
+
 }

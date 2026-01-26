@@ -13,6 +13,7 @@ import com.safa.testspringboot.Models.UsuarioPerfil;
 import com.safa.testspringboot.Repository.RopaRepository;
 import com.safa.testspringboot.Repository.UsuarioPerfilRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class RopaService {
 
     private final RopaRepository ropaRepository;
     private final UsuarioPerfilRepository usuarioPerfilRepository;
+    @Qualifier("ropaMapper")
     private final RopaMapper mapper;
 
     public List<RopaDto> obtenerTodos() {

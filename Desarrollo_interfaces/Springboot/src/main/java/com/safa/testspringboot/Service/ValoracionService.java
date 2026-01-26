@@ -26,6 +26,7 @@ public class ValoracionService {
         return mapper.toDto(valoracionRepository.findAll());
     }
 
+
     public void guardarValoracion(ValoracionDto valoracionDto, Integer idUsuario, Integer idIntercambio) {
 
         UsuarioPerfil usuarioPerfil = usuarioPerfilRepository.findById(idUsuario)

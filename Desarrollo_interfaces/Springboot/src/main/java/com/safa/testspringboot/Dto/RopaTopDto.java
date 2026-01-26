@@ -20,4 +20,8 @@ public class RopaTopDto {
     @NotBlank(message = "El estilo no puede estar vacío")
     private Estilo estilo; // enum
     private Long numeroIntercambios;
+
+    public RopaTopDto() {
+
+    }
 }
