@@ -1,9 +1,8 @@
-from time import sleep
-
 import pygame, sys, random
 
+
 def ball_animation():
-    global ball_speed_y, ball_speed_x,vidasPlayer1, vidasPlayer2, puntuacionPlayer1, puntuacionPlayer2
+    global ball_speed_y, ball_speed_x, vidasPlayer1, vidasPlayer2, puntuacionPlayer1, puntuacionPlayer2
     ball.x += ball_speed_x
     ball.y += ball_speed_y
 
@@ -17,8 +16,7 @@ def ball_animation():
         puntuacionPlayer2 += 1
         vidasPlayer1 -= 1
 
-    if vidasPlayer1==0 or vidasPlayer2==0:
-
+    if vidasPlayer1 == 0 or vidasPlayer2 == 0:
         pantallaFin()
 
     if ball.top <= 0 or ball.bottom >= screen_height:
@@ -37,9 +35,9 @@ def player_animation():
     if player.bottom >= screen_height:
         player.bottom = screen_height
 
+
 def pantallaFin():
     global puntuacionPlayer1, puntuacionPlayer2
-
 
     # Fondo negro con transparencia (opcional)
     pygame.draw.rect(screen, (0, 0, 0), pantallaFinal)
@@ -50,7 +48,6 @@ def pantallaFin():
     pygame.time.delay(3000)
     pygame.quit()
     sys.exit()
-
 
 
 def opponent_animation():
@@ -75,53 +72,89 @@ def ball_restart():
         ball_speed_y += 4
         ball_speed_x += 4
 
-    ball.center = (screen_width/2, screen_height/2)
-    ball_speed_y *= random.choice((1,-1))
-    ball_speed_x *= random.choice((-1,1))
+    ball.center = (screen_width / 2, screen_height / 2)
+    ball_speed_y *= random.choice((1, -1))
+    ball_speed_x *= random.choice((-1, 1))
+
 
 def pantallaInicio():
-    mostrado = True
-
-    pantallaInformacion = pygame.Rect(screen_width/2,screen_height/2,1280,660)
-    pygame.draw.rect(screen, (255, 255, 255), pantallaInformacion)
-
-    if event.key == pygame.K_RETURN:  # Enter
-        mostrado = False  # salir de la pantalla de inicio
 
 
+    # El get rect sirve para crear y manejar posiciones y tamaños
+    # Muestra en pantalla
+
+    screen.fill((0, 0, 0))
+
+    texto1= game_font.render("VENCE A TU ENEMIGO ", True, (255, 255, 255))
+    textoPosicion1 = texto1.get_rect(center=(screen_width / 2, screen_height / 2 -120))
+
+    texto6 =game_font.render("PRESIONA 'O' PARA ENCOJER Y 'P' PARA AGRANDAR", True, (255, 255, 255))
+    textoPosicion6 = texto6.get_rect(center=(screen_width / 2, screen_height / 2 -70))
+
+    texto2= game_font.render("'ARRIBA' PARA SUBIR y 'ABAJO' PARA BAJAR", True, (255, 255, 255))
+    textoPosicion2 = texto2.get_rect(center=(screen_width / 2, screen_height / 2 - 20))
+
+    texto3= game_font.render("GANA CON 5 PUNTOS", True, (255, 255, 255))
+    textoPosicion3 = texto3.get_rect(center=(screen_width / 2, screen_height / 2 + 35))
+
+    texto4 = game_font.render("- ENTER PARA JUGAR -", True, (255, 255, 255))
+    textoPosicion4 = texto4.get_rect(center=(screen_width / 2, screen_height / 2 + 90))
 
 
-# General setup
+    texto5 = game_font.render("CREADO POR -> LEYTON", True, (200,0,0))
+    textoPosicion5 = texto5.get_rect(center=(screen_width / 2, screen_height / 2 + 200))
+
+    screen.blit(texto1, textoPosicion1)
+    screen.blit(texto2, textoPosicion2)
+    screen.blit(texto3, textoPosicion3)
+    screen.blit(texto4, textoPosicion4)
+    screen.blit(texto5, textoPosicion5)
+    screen.blit(texto6, textoPosicion6)
+    pygame.display.flip()
+
+
+
+
+
+#  General setup
 pygame.init()
 pong_sound = pygame.mixer.Sound("pong.ogg")
 score_sound = pygame.mixer.Sound("pong.ogg")
 sonidoFondo = pygame.mixer.Sound("sonidoAmbiente.mp3")
 clock = pygame.time.Clock()
+mostrarPantallaInicio = True
 
-screen_width = 1280
-screen_height = 660
-screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption('Pong')
+# Responsive
+info = pygame.display.Info()
+screen_width = info.current_w - 100
+screen_height = info.current_h -120
+screen = pygame.display.set_mode((screen_width, screen_height), pygame.RESIZABLE)
 
-game_font = pygame.font.Font(None, 50)
+# Escalar fondo
+background = pygame.image.load("img/kimetsu.jpg").convert()
+background = pygame.transform.scale(background, (screen_width, screen_height))
 
-ball = pygame.Rect(screen_width/2 - 15, screen_height/2 - 15, 60, 60)
-player = pygame.Rect(screen_width - 20, screen_height/2 - 70, 20, 140)
-opponent = pygame.Rect(10, screen_height/2 - 70, 20, 140)
-pantallaFinal = pygame.Rect(0,0,1280,660)
+
+game_font = pygame.font.Font(None, int(screen_height * 0.075))
+# -----------------------------------------------------
+
+
+ball = pygame.Rect(screen_width / 2 - 15, screen_height / 2 - 15, 60, 60)
+player = pygame.Rect(screen_width - 30, screen_height / 2 - 70, 20, 140)
+opponent = pygame.Rect(10, screen_height / 2 - 70, 20, 140)
+pantallaFinal = pygame.Rect(0, 0, screen_width, screen_height)
 texto_final = game_font.render("HAS PERDIDO", True, (255, 0, 0))  # rojo
 texto_rect = texto_final.get_rect(center=pantallaFinal.center)
 
 
-
 puntuacionPlayer1 = 0
 puntuacionPlayer2 = 0
-puntuacion1 = pygame.Rect(screen_width/2 -60,30,60,60)
-puntuacion2 = pygame.Rect(screen_width/2 +60,30,60,60)
+puntuacion1 = pygame.Rect(screen_width / 2 - 60, 30, 60, 60)
+puntuacion2 = pygame.Rect(screen_width / 2 + 60, 30, 60, 60)
 
 bg_color = pygame.Color('grey12')
-light_grey = (144,213,255)
-colorScore= (0,0,0)
+light_grey = (144, 213, 255)
+colorScore = (0, 0, 0)
 
 background = pygame.image.load("img/kimetsu.jpg").convert()
 background = pygame.transform.scale(background, (screen_width, screen_height))
@@ -129,17 +162,15 @@ background = pygame.transform.scale(background, (screen_width, screen_height))
 ball_image = pygame.image.load("img/dragonball.png").convert_alpha()
 ball_image = pygame.transform.scale(ball_image, (60, 60))
 
-ball_speed_x = 7 * random.choice((1,-1))
-ball_speed_y = 7 * random.choice((-1,1))
+ball_speed_x = 7 * random.choice((1, -1))
+ball_speed_y = 7 * random.choice((-1, 1))
 player_speed = 0
 opponent_speed = 7
 vidasPlayer1 = 5
 vidasPlayer2 = 5
 
-
 sonidoFondo.set_volume(0.1)
 sonidoFondo.play(-1)
-
 
 while True:
     for event in pygame.event.get():
@@ -147,18 +178,49 @@ while True:
             pygame.quit()
             sys.exit()
 
+        if mostrarPantallaInicio == True:
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
+                    mostrarPantallaInicio = False
 
 
         if event.type == pygame.KEYDOWN:
+
+            # Aumentar tamaño
+            if event.key == pygame.K_p:
+
+
+
+                if player.height < 300:
+                    player.height += 30
+                    player.y -= 15
+                    if player.top < 0:
+                        player.top = 0
+
+            # Disminuir tamaño
+            if event.key == pygame.K_o:
+
+                if player.height > 40:
+                    player.height -= 30
+                    player.y += 15
+                    if player.bottom > screen_height:
+                        player.bottom = screen_height
+
+
             if event.key == pygame.K_DOWN:
                 player_speed += 7
             if event.key == pygame.K_UP:
                 player_speed -= 7
+
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_DOWN:
                 player_speed -= 7
             if event.key == pygame.K_UP:
                 player_speed += 7
+
+    if mostrarPantallaInicio:
+        pantallaInicio()
+        clock.tick(60)
+        continue
 
 
     ball_animation()
@@ -181,9 +243,6 @@ while True:
     pygame.draw.rect(screen, light_grey, player)
     pygame.draw.rect(screen, light_grey, opponent)
     screen.blit(ball_image, ball)
-
-
-
 
     pygame.display.flip()
     clock.tick(60)
