@@ -1,20 +1,43 @@
 import pygame, sys, random
 
+## Crear un rectángulo para la paleta del jugador
+##player = pygame.Rect(100, 200, 20, 140)  # x, y, ancho, alto
+
+# Dibujarlo
+## pygame.draw.rect(screen, (255,255,255), player)
+
+
+#Aqui pierde vidas el oponente o el jugador
+#Comportamiento general cuando la bola choca con player o oponente
 
 def ball_animation():
-    global ball_speed_y, ball_speed_x, vidasPlayer1, vidasPlayer2, puntuacionPlayer1, puntuacionPlayer2
+    global ball, ball_speed_y, ball_speed_x, vidasPlayer1, vidasPlayer2, puntuacionPlayer1, puntuacionPlayer2
+
     ball.x += ball_speed_x
     ball.y += ball_speed_y
 
     if ball.left <= 0:
+
 
         puntuacionPlayer1 += 1
         vidasPlayer2 -= 1
 
     elif ball.right >= screen_width:
 
+
         puntuacionPlayer2 += 1
         vidasPlayer1 -= 1
+
+
+
+
+
+
+
+
+
+
+
 
     if vidasPlayer1 == 0 or vidasPlayer2 == 0:
         pantallaFin()
@@ -24,10 +47,14 @@ def ball_animation():
     if ball.left <= 0 or ball.right >= screen_width:
         ball_restart()
 
-    if ball.colliderect(player) or ball.colliderect(opponent):
-        ball_speed_x *= -1
+    if ball.colliderect(player):
+        ball_speed_x = abs(ball_speed_x)*-1
+
+    if ball.colliderect(opponent):
+        ball_speed_x = abs(ball_speed_x)
 
 
+#Evita que ser salga de la pantalla
 def player_animation():
     player.y += player_speed
     if player.top <= 0:
@@ -35,13 +62,12 @@ def player_animation():
     if player.bottom >= screen_height:
         player.bottom = screen_height
 
-
+#Pantalla
 def pantallaFin():
     global puntuacionPlayer1, puntuacionPlayer2
 
-    # Fondo negro con transparencia (opcional)
+
     pygame.draw.rect(screen, (0, 0, 0), pantallaFinal)
-    # Texto de “HAS PERDIDO”
     screen.blit(texto_final, texto_rect)
     pygame.display.flip()
     # Esperar 3 segundos antes de cerrar
@@ -61,7 +87,7 @@ def opponent_animation():
     if opponent.bottom >= screen_height:
         opponent.bottom = screen_height
 
-
+#Aumenta la velocidad cuando se marca un punto
 def ball_restart():
     global ball_speed_x, ball_speed_y
 
@@ -114,8 +140,6 @@ def pantallaInicio():
 
 
 
-
-
 #  General setup
 pygame.init()
 pong_sound = pygame.mixer.Sound("pong.ogg")
@@ -139,29 +163,34 @@ game_font = pygame.font.Font(None, int(screen_height * 0.075))
 # -----------------------------------------------------
 
 
-ball = pygame.Rect(screen_width / 2 - 15, screen_height / 2 - 15, 60, 60)
+
 player = pygame.Rect(screen_width - 30, screen_height / 2 - 70, 20, 140)
 opponent = pygame.Rect(10, screen_height / 2 - 70, 20, 140)
 pantallaFinal = pygame.Rect(0, 0, screen_width, screen_height)
 texto_final = game_font.render("HAS PERDIDO", True, (255, 0, 0))  # rojo
 texto_rect = texto_final.get_rect(center=pantallaFinal.center)
 
-
+#Puntuaciones
 puntuacionPlayer1 = 0
 puntuacionPlayer2 = 0
 puntuacion1 = pygame.Rect(screen_width / 2 - 60, 30, 60, 60)
 puntuacion2 = pygame.Rect(screen_width / 2 + 60, 30, 60, 60)
 
+
+
+#Colores y Fondo
+ball = pygame.Rect(screen_width / 2 - 15, screen_height / 2 - 15, 60, 60)
 bg_color = pygame.Color('grey12')
 light_grey = (144, 213, 255)
 colorScore = (0, 0, 0)
-
 background = pygame.image.load("img/kimetsu.jpg").convert()
 background = pygame.transform.scale(background, (screen_width, screen_height))
-
 ball_image = pygame.image.load("img/dragonball.png").convert_alpha()
 ball_image = pygame.transform.scale(ball_image, (60, 60))
 
+
+
+#Velocidades y vidas
 ball_speed_x = 7 * random.choice((1, -1))
 ball_speed_y = 7 * random.choice((-1, 1))
 player_speed = 0
@@ -169,6 +198,7 @@ opponent_speed = 7
 vidasPlayer1 = 5
 vidasPlayer2 = 5
 
+#Musica
 sonidoFondo.set_volume(0.1)
 sonidoFondo.play(-1)
 
@@ -187,7 +217,6 @@ while True:
 
             # Aumentar tamaño
             if event.key == pygame.K_p:
-
 
 
                 if player.height < 300:
@@ -227,8 +256,8 @@ while True:
     player_animation()
     opponent_animation()
 
-    # ---- ORDEN CORREGIDO ----
-    screen.blit(background, (0, 0))  # fondo
+    # Puntuación
+    screen.blit(background, (0, 0))
     pygame.draw.rect(screen, colorScore, puntuacion1)  # rectángulos puntuación
     pygame.draw.rect(screen, colorScore, puntuacion2)
 
