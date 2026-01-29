@@ -1,12 +1,23 @@
 import json
 import os
 from django.shortcuts import render
-from django.conf import settings # Usa settings de django.conf
+from django.conf import settings  # Usa settings de django.conf
 from .models import Juego
 
 
 def cargarInicio(request):
     return render(request, 'html/home.html')
+
+
+def cargarlogin(request):
+    return render(request, 'html/loginUsuario.html')
+
+
+def cargarloginAdmin(request):
+    return render(request, 'html/loginAdministrador.html')
+
+def cargarprincipalAdmin(request):
+    return render(request, 'html/principalAdmin.html')
 
 def cargarJuegos(request):
     ruta_json = os.path.join(settings.BASE_DIR, 'Videogames', 'juegos.json')
@@ -22,8 +33,8 @@ def cargarJuegos(request):
         for data in datos_api[:32]:
             Juego.objects.using('mongodb').create(
                 codigo=data.get('id'),
-                titulo=data.get('title'),           # 'title' de la API -> 'titulo' de tu modelo
-                imagen=data.get('thumbnail'),       # 'thumbnail' de la API -> 'imagen' de tu modelo
+                titulo=data.get('title'),  # 'title' de la API -> 'titulo' de tu modelo
+                imagen=data.get('thumbnail'),  # 'thumbnail' de la API -> 'imagen' de tu modelo
                 descripcion=data.get('short_description'),
                 url_juego=data.get('game_url'),
                 genero=data.get('genre'),
