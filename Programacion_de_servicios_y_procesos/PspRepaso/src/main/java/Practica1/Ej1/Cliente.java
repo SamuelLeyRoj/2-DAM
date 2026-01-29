@@ -24,9 +24,14 @@ public class Cliente {
 
         salida.writeUTF(frase);
 
-        String leerServidor = entrada.readUTF();
-        System.out.println("Servidor conectado: "+leerServidor);
+        if (frase.contains("*")) {
+            System.out.println("Se acabó");
+        }
+        else {
+            String leerServidor = entrada.readUTF();
+            System.out.println("Servidor conectado: "+leerServidor);
 
+        }
 
     }
 }

@@ -14,8 +14,8 @@ public class HiloCliente extends Thread {
         this.socket = socket;
     }
 
-    // El método run() es el CORAZÓN del hilo.
-    // Todo lo que escribas aquí es lo que el hilo hará en paralelo.
+    // El metodo run() es el CORAZON del hilo.
+    // Todo lo que escribas aqui es lo que el hilo hara en paralelo.
     @Override
     public void run() {
         try {
