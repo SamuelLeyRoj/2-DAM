@@ -127,8 +127,11 @@ def pantallaInicio():
     textoPosicion4 = texto4.get_rect(center=(screen_width / 2, screen_height / 2 + 90))
 
 
-    texto5 = game_font.render("CREADO POR -> LEYTON", True, (200,0,0))
+    texto5 = game_font.render("CREADO POR -> LEYTON  :)", True, (200,0,0))
     textoPosicion5 = texto5.get_rect(center=(screen_width / 2, screen_height / 2 + 200))
+
+    texto7 = game_font.render("EN COLABORACIÓN DE -> ÁNGELA :P",True,(255,0,255))
+    textoPosicion7 = texto7.get_rect(center=(screen_width / 2, screen_height / 2 + 250))
 
     screen.blit(texto1, textoPosicion1)
     screen.blit(texto2, textoPosicion2)
@@ -136,6 +139,7 @@ def pantallaInicio():
     screen.blit(texto4, textoPosicion4)
     screen.blit(texto5, textoPosicion5)
     screen.blit(texto6, textoPosicion6)
+    screen.blit(texto7, textoPosicion7)
     pygame.display.flip()
 
 
