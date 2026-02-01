@@ -1,0 +1,25 @@
+<odoo>
+    <record id="view_slr_import_wizard_form" model="ir.ui.view">
+        <field name="name">slr.import.wizard.form</field>
+        <field name="model">slr.import.wizard</field> <field name="arch" type="xml">
+            <form string="Importar Logística Externa">
+                <sheet>
+                    <group>
+                        <field name="file_data" filename="file_name"/>
+                        <field name="file_name" invisible="1"/> 
+                    </group>
+                    <footer>
+                        <button name="action_import" string="Importar" type="object" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_import_external_data" model="ir.actions.act_window">
+        <field name="name">Importar Respuesta Logística</field>
+        <field name="res_model">slr.import.wizard</field> <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

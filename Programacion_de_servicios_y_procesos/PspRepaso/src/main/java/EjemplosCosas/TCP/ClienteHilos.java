@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.*;
 import java.util.Scanner;
 
-public class ClienteHilos {
+public class    ClienteHilos {
     public static void main(String[] args) throws Exception {
         // Intentamos conectar con la IP (localhost) y el puerto (6000).
         Socket socket = new Socket("localhost", 6000);

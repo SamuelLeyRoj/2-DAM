@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="usuario_perfil")
+@Table(name="usuario_perfil",schema = "public")
 public class UsuarioPerfil {
 
     @Id

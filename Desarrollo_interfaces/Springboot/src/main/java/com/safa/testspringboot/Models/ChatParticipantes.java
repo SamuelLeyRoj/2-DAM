@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="chat_participantes")
+@Table(name="chat_participantes", schema = "public")
 public class ChatParticipantes {
 
     @Id

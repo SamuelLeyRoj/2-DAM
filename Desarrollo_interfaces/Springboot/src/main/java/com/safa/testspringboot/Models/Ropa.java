@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="ropa")
+@Table(name="ropa",schema = "public")
 public class Ropa {
 
     @Id

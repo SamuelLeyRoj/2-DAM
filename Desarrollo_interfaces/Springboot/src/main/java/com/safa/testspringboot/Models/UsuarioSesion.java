@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="usuario_sesion")
+@Table(name="usuario_sesion" , schema = "public")
 public class UsuarioSesion {
 
     @Id

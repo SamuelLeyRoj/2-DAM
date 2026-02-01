@@ -1,7 +1,7 @@
 {
   "/api": {
-    "target": "http://localhost:8080",
-    "secure": false,
+    "target": "https://backendsprinboot-1.onrender.com",
+    "secure": true,
     "changeOrigin": true,
     "pathRewrite": { "^/api": "" },
     "logLevel": "debug"

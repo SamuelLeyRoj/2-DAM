@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="chat")
+@Table(name="chat" , schema = "public")
 public class Chat {
 
     @Id
