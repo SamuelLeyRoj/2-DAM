@@ -36,7 +36,10 @@ body {
     );
     opacity: 0;
     transition: opacity 0.3s;
+
+    pointer-events: none;
 }
+
 
 .role-card:hover::before {
     opacity: 1;

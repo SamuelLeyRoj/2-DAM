@@ -1,0 +1,7 @@
+<div class="game-card-mini" 
+     id="game-{{ juego.pk }}" 
+     draggable="true" 
+     ondragstart="drag(event)" 
+     data-id="{{ juego.pk }}">
+    <img src="{{ juego.imagen }}" title="{{ juego.titulo }}" alt="{{ juego.titulo }}">
+</div>

@@ -1,0 +1,107 @@
+/* --- CONFIGURACIÓN GENERAL --- */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+}
+
+/* --- TARJETA DEL JUEGO (GAME CARD) --- */
+.game-card {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #333;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+/* Efecto de brillo "Glass/Neon" al pasar el mouse */
+.game-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(13, 110, 253, 0.15), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.game-card:hover::before {
+    opacity: 1;
+}
+
+.game-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(13, 110, 253, 0.2);
+    border-color: #0d6efd;
+}
+
+/* --- IMAGEN DEL JUEGO --- */
+.img-juego {
+    width: 80px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #444;
+}
+
+/* --- BOTÓN RANKING (NUEVO) --- */
+.btn-ranking {
+    background: linear-gradient(45deg, #ffc107, #ffdb4d);
+    border: none;
+    color: #000;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+}
+
+.btn-ranking:hover {
+    background: linear-gradient(45deg, #ffdb4d, #ffc107);
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.5);
+    color: #000;
+}
+
+/* --- ACORDEÓN PERSONALIZADO --- */
+.accordion-item {
+    background-color: transparent !important;
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.accordion-button {
+    background-color: #1f1f1f !important;
+    color: #0d6efd !important;
+    border: 1px solid #333;
+    border-radius: 10px !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #252525 !important;
+    border-bottom: 1px solid #0d6efd;
+    color: #fff !important;
+}
+
+/* Invertir el color de la flecha del acordeón a blanco */
+.accordion-button::after {
+    filter: invert(1);
+}
+
+.accordion-body {
+    background-color: #161616;
+    border: 1px solid #333;
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 20px;
+}

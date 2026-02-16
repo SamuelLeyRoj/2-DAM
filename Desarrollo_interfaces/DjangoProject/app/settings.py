@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
 #}
 
 DATABASES = {
-    "default": {
+    "default": {   # SQLite para Django interno
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     },
@@ -94,6 +94,7 @@ DATABASES = {
         "NAME": "videogames",
     }
 }
+
 
 
 
@@ -138,3 +139,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "node_modules",
     BASE_DIR / "static",
 ]
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DATABASE_ROUTERS = ["app.router.MongoRouter"]
+AUTH_USER_MODEL = 'Videogames.Usuario'

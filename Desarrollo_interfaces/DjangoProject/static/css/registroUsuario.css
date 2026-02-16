@@ -1,0 +1,109 @@
+body {
+    background: radial-gradient(circle at top, #222 0%, #0f0f0f 60%);
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-family: "Arial Black";
+    font-size: 17px;
+}
+
+h2 {
+    font-family: "Arial Black";
+    font-size: 32px;
+}
+
+.main-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Card login / Registro */
+.login-card {
+    background-color: #1f1f1f;
+    border: none;
+    transition: all 0.35s ease;
+    cursor: default;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+}
+
+.login-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.09), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.login-card:hover::before {
+    opacity: 1;
+}
+
+.login-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* Inputs y Selects oscuros */
+.form-control-dark {
+    background-color: #2b2b2b;
+    border: 1px solid #444;
+    color: gray;
+}
+
+.form-control-dark:focus {
+    background-color: #2b2b2b;
+    border-color: white;
+    box-shadow: 0 0 8px white;
+    color: white;
+}
+
+/* Ajuste específico para el SELECT de Rol */
+.form-select.form-control-dark {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%230d6efd' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+}
+
+/* Botones */
+.btn-login {
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-family: "Arial Black";
+}
+
+.btn-login:hover {
+    background-color: gray;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* Enlaces */
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: gray;
+    text-decoration: underline;
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración | Sevilla Gaming</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        :root {
+            --bg-dark: #0b0c10;
+            --neon-red: #dc3545;
+            --neon-dim: #a0212d;
+            --text-main: #bbb;
+            --card-bg: #161616;
+        }
+
+        body {
+            background: radial-gradient(circle at top center, #2b0a0d 0%, #0b0c10 80%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+        /* --- Navbar --- */
+        .navbar-custom {
+            background: rgba(11, 12, 16, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--neon-red);
+            box-shadow: 0 0 20px rgba(220, 53, 69, 0.3);
+        }
+
+        .brand-glow {
+            color: var(--neon-red) !important;
+            text-shadow: 0 0 10px rgba(220, 53, 69, 0.5);
+            font-weight: 800;
+        }
+
+        /* --- KPIs --- */
+        .stat-box {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            padding: 20px;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        
+        .stat-box::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--neon-red), transparent);
+        }
+
+        .stat-box:hover {
+            border-color: var(--neon-red);
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(220, 53, 69, 0.2);
+        }
+
+        .stat-value { font-size: 2.5rem; font-weight: 900; color: white; line-height: 1; }
+        .stat-label { color: var(--neon-dim); text-transform: uppercase; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; margin-top: 5px; }
+
+        /* --- Paneles y Tablas --- */
+        .content-panel {
+            background: rgba(22, 22, 22, 0.85);
+            border: 1px solid #333;
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        .panel-header {
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .panel-dot { width: 8px; height: 8px; background: var(--neon-red); box-shadow: 0 0 8px var(--neon-red); }
+
+        .admin-table { width: 100%; color: #bbb; font-size: 0.9rem; }
+        .admin-table th { color: var(--neon-dim); text-transform: uppercase; padding-bottom: 10px; border-bottom: 1px solid #444; }
+        .admin-table td { padding: 12px 0; border-bottom: 1px solid #222; }
+        .admin-table tr:hover td { color: white; background: rgba(220, 53, 69, 0.05); }
+        
+        .badge-red { background-color: var(--neon-dim); color: white; padding: 3px 8px; border-radius: 3px; font-size: 0.7rem; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-custom sticky-top mb-4 py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+        <span class="navbar-brand brand-glow fs-4">SEVILLA GAMING <span style="color:white; font-size: 0.8rem; vertical-align: middle;" class="ms-2 px-2 py-1 bg-danger rounded">ADMIN</span></span>
+        <a href="{% url 'principalAdmin' %}" class="btn btn-outline-danger btn-sm px-4 rounded-pill">Volver al Menú</a>
+    </div>
+</nav>
+
+<div class="container pb-5 animate__animated animate__fadeIn">
+
+    <div class="row g-3 mb-4">
+        <div class="col-6 col-md-3">
+            <div class="stat-box text-center">
+                <div class="stat-value">{{ total_usuarios }}</div>
+                <div class="stat-label">Usuarios</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="stat-box text-center">
+                <div class="stat-value">{{ total_rankings }}</div>
+                <div class="stat-label">Rankings</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="stat-box text-center">
+                <div class="stat-value">{{ total_juegos }}</div>
+                <div class="stat-label">Elementos (Juegos)</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="stat-box text-center">
+                <div class="stat-value">{{ total_categorias }}</div>
+                <div class="stat-label">Categorías</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        
+        <div class="col-lg-6">
+            <div class="content-panel h-100">
+                <div class="panel-header">
+                    <div class="panel-dot"></div> SUPERVISIÓN DE USUARIOS
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Nombre</th>
+                            <th>Rol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for u in ultimos_usuarios %}
+                        <tr>
+                            <td class="text-white">{{ u.email }}</td>
+                            <td>{{ u.nombre }}</td>
+                            <td><span class="badge-red">{{ u.rol|upper }}</span></td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="3">No hay usuarios registrados.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="content-panel h-100">
+                <div class="panel-header">
+                    <div class="panel-dot"></div> ACTIVIDAD DE RANKINGS
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Categoría Evaluada</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for r in ultimos_rankings %}
+                        <tr>
+                            <td class="text-white">{{ r.usuario }}</td>
+                            <td>{{ r.categoria_nombre }}</td>
+                            <td>{{ r.fecha|date:"d M Y - H:i" }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="3">No hay rankings creados todavía.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

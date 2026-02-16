@@ -36,7 +36,7 @@
                         Explora el catálogo, descubre juegos y disfruta del contenido.
                     </p>
                     <div class="mt-auto">
-                        <a href="/login" class="btn btn-outline-primary btn-role w-100">
+                        <a href="{% url 'loginUsuario' %}" class="btn btn-outline-primary btn-role w-100">
                             Entrar como Usuario
                         </a>
                     </div>
@@ -54,7 +54,7 @@
                         Gestiona juegos, usuarios y contenido del sistema.
                     </p>
                     <div class="mt-auto">
-                        <a href="/admin" class="btn btn-outline-danger btn-role w-100">
+                        <a href="{% url 'loginAdmin' %}" class="btn btn-outline-danger btn-role w-100">
                             Acceso Administrador
                         </a>
                     </div>

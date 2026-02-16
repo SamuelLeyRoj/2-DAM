@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Tier List - {{ categoria.nombre }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/rankingUsuario.css' %}">
+    <style>
+        /* Estilos para que el juego se vea bien */
+        .game-card-mini {
+            width: 80px;
+            height: 110px;
+            cursor: grab;
+            margin: 5px;
+            position: relative; /* Importante para el z-index */
+            flex-shrink: 0;
+        }
+        .game-card-mini img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 2px solid #333;
+            pointer-events: none; /* TRUCO: Evita arrastrar la imagen interna, arrastras el div */
+        }
+        .tier-items, .bank-items {
+            min-height: 120px;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start; /* Alinea al principio */
+            padding: 5px;
+        }
+        /* Colores de fondo */
+        .row-s { background-color: #ff7f7f33; }
+        .row-a { background-color: #ffbf7f33; }
+        .row-b { background-color: #ffdf7f33; }
+        .row-c { background-color: #ffff7f33; }
+        .row-d { background-color: #bfff7f33; }
+        .row-f { background-color: #7f7fff33; }
+    </style>
+</head>
+<body class="bg-dark text-white">
+
+<nav class="navbar navbar-dark bg-black shadow mb-4">
+    <div class="container d-flex justify-content-between">
+        <span class="navbar-brand">🎮 TIER LIST: {{ categoria.nombre }}</span>
+        <div>
+            <a href="{% url 'principalUsuario' %}" class="btn btn-secondary me-2">Volver</a>
+            <button onclick="guardarTierList()" class="btn btn-success fw-bold"> GUARDAR CAMBIOS</button>
+        </div>
+    </div>
+</nav>
+
+<div class="container pb-5">
+
+    <div class="tier-list-container-wide">
+        <div class="d-flex border-bottom border-secondary row-s">
+            <div class="bg-danger text-black fw-bold p-4 d-flex align-items-center justify-content-center" style="width: 100px; font-size: 2rem;">S</div>
+            <div class="tier-items flex-grow-1" id="tier-S" ondrop="drop(event)" ondragover="allowDrop(event)">
+                {% for juego in tiers.S %}
+                   {% include "html/card_tier.html" %} {% endfor %}
+            </div>
+        </div>
+
+        <div class="d-flex border-bottom border-secondary row-a">
+            <div class="bg-warning text-black fw-bold p-4 d-flex align-items-center justify-content-center" style="width: 100px; font-size: 2rem;">A</div>
+            <div class="tier-items flex-grow-1" id="tier-A" ondrop="drop(event)" ondragover="allowDrop(event)">
+                {% for juego in tiers.A %}
+                   {% include "html/card_tier.html" %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="d-flex border-bottom border-secondary row-b">
+            <div class="bg-info text-black fw-bold p-4 d-flex align-items-center justify-content-center" style="width: 100px; font-size: 2rem;">B</div>
+            <div class="tier-items flex-grow-1" id="tier-B" ondrop="drop(event)" ondragover="allowDrop(event)">
+                {% for juego in tiers.B %}
+                   {% include "html/card_tier.html" %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="d-flex border-bottom border-secondary row-c">
+            <div class="bg-success text-black fw-bold p-4 d-flex align-items-center justify-content-center" style="width: 100px; font-size: 2rem;">C</div>
+            <div class="tier-items flex-grow-1" id="tier-C" ondrop="drop(event)" ondragover="allowDrop(event)">
+                {% for juego in tiers.C %}
+                   {% include "html/card_tier.html" %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="d-flex border-bottom border-secondary row-d">
+            <div class="bg-primary text-black fw-bold p-4 d-flex align-items-center justify-content-center" style="width: 100px; font-size: 2rem;">D</div>
+            <div class="tier-items flex-grow-1" id="tier-D" ondrop="drop(event)" ondragover="allowDrop(event)">
+                {% for juego in tiers.D %}
+                   {% include "html/card_tier.html" %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="d-flex border-bottom border-secondary row-f">
+            <div class="bg-secondary text-black fw-bold p-4 d-flex align-items-center justify-content-center" style="width: 100px; font-size: 2rem;">F</div>
+            <div class="tier-items flex-grow-1" id="tier-F" ondrop="drop(event)" ondragover="allowDrop(event)">
+                {% for juego in tiers.F %}
+                   {% include "html/card_tier.html" %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="mt-5 p-3 border border-secondary rounded bg-black">
+            <h4 class="text-secondary border-bottom border-secondary pb-2">Banco de Juegos (Sin clasificar)</h4>
+            <div class="bank-items" id="bank" ondrop="drop(event)" ondragover="allowDrop(event)">
+                {% for juego in tiers.Bank %}
+                   {% include "html/card_tier.html" %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function allowDrop(ev) {
+        ev.preventDefault(); // Necesario para permitir soltar
+    }
+
+    function drag(ev) {
+        // Guardamos el ID del elemento que estamos arrastrando
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        var draggedElement = document.getElementById(data);
+        
+        // Identificar dónde estamos soltando (el destino)
+        var target = ev.target;
+
+        // Si soltamos encima de una IMAGEN o DIV hijo, buscamos el contenedor padre correcto (.tier-items o .bank-items)
+        // Esto evita que una carta se meta dentro de otra
+        if (!target.classList.contains('tier-items') && !target.classList.contains('bank-items')) {
+            target = target.closest('.tier-items, .bank-items');
+        }
+
+        // Si encontramos un contenedor válido, soltamos la carta ahí
+        if (target) {
+            target.appendChild(draggedElement);
+        }
+    }
+
+    function guardarTierList() {
+        const tiersMap = {'tier-S': 'S', 'tier-A': 'A', 'tier-B': 'B', 'tier-C': 'C', 'tier-D': 'D', 'tier-F': 'F'};
+        let datosAGuardar = [];
+
+        // Recorremos los IDs de las filas
+        for (const [idDiv, letraTier] of Object.entries(tiersMap)) {
+            const container = document.getElementById(idDiv);
+            const juegos = container.getElementsByClassName('game-card-mini');
+            
+            for (let juego of juegos) {
+                datosAGuardar.push({
+                    id: juego.getAttribute('data-id'),
+                    tier: letraTier
+                });
+            }
+        }
+        
+        // --- AQUÍ ESTÁ EL CAMBIO ---
+        // Obtenemos el nombre de la categoría que Django pintó en el HTML
+        // Asegúrate de que {{ categoria.nombre }} esté disponible en el template como string
+        const categoriaNombre = "{{ categoria.nombre|escapejs }}"; 
+
+        fetch("{% url 'guardarTierList' %}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": "{{ csrf_token }}"
+            },
+            body: JSON.stringify({ 
+                rankings: datosAGuardar,
+                categoria_nombre: categoriaNombre // Enviamos el nombre
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.status === 'success') {
+                alert("✅ Tier List de " + categoriaNombre + " guardada.");
+            } else {
+                alert("❌ Error: " + data.message);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+</script>
+
+</body>
+</html>

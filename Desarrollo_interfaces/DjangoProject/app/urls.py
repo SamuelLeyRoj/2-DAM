@@ -1,27 +1,40 @@
-"""
-URL configuration for app project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/6.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
-
 from Videogames import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.cargarprincipalAdmin, name='principalAdmin'),
-    path('cargarDatos/', views.cargarJuegos, name='cargarJuegos'),
 
+    path('admin/', admin.site.urls),
+    path('', views.cargarHome, name='home'),
+    path('LoginAdmin/', views.cargarloginAdmin, name='loginAdmin'),
+    path('LoginUsuario/', views.cargarloginUsuario, name='loginUsuario'),
+    path('RegistroUsuario', views.cargarregistroUsuario, name='registroUsuario'),
+    path('PrincipalAdmin/', views.cargarprincipalAdmin, name='principalAdmin'),
+    path('PrincipalUsuario/', views.cargarprincipalUsuario, name='principalUsuario'),
+    path('CargarDatos/', views.cargarJuegos, name='cargarJuegos'),
+    path('GestionCategoriasAdmin', views.cargarGestionCategoriasAdmin, name='gestionCategoriasAdmin'),
+    path('GestionCategoriasRanking/', views.gestionCategoriasRanking, name='gestionCategoriasRanking'),
+    path('RankingUsuario/', views.cargarRankingUsuarios, name='rankingUsuarios'),
+    path('estadisticas/', views.estadisticasGlobales, name='estadisticasGlobales'),
+    path('CargarJson/', views.cargarJson, name='cargarJson'),
+    path('EstadisticasAdmin/', views.estadisticasGlobalesAdmin, name='estadisticasGlobalesAdmin'),
+    path('EstadisticasAdminAdicional/',views.estadisticasGlobalesAdminAdicional, name='estadisticasGlobalesAdminAdicional'),
+
+    path('CargarCategotiasUsuario/', views.cargarCategoriasUsuario, name='cargarCategoriasUsuario'),
+
+    # --- ESTA ES LA LÍNEA QUE TE FALTABA (AÑÁDELA) ---
+    path('calificar-juego/', views.calificar_juego, name='calificar_juego'),
+    # -------------------------------------------------
+
+    # Añade esto junto a las otras rutas:
+    path('tierlist/<str:pk>/', views.cargarTierList, name='tierlist'),
+    path('categorias/editar/<str:pk>/', views.editar_categoria, name='editar_categoria'),
+    path('categorias/eliminar/<str:pk>/', views.eliminar_categoria, name='eliminar_categoria'),
+    path('categorias/<str:cat_pk>/quitar-juego/<str:juego_pk>/', views.quitar_juego_categoria,
+         name='quitar_juego_categoria'),
+    path('categorias/aniadir-juego/<str:cat_pk>/', views.aniadir_juego_categoria, name='aniadir_juego_categoria'),
+    path('importar-categorias/', views.importar_categorias_json, name='importar_categorias_json'),
+    path('importar-juegos/', views.importar_juegos_json, name='importar_juegos_json'),
+    path('tierlist/<str:pk>/', views.cargarTierList, name='tierlist'),  # Ya estaba
+    path('guardar-tierlist/', views.guardarTierList, name='guardarTierList'),  # NUEVA
 ]

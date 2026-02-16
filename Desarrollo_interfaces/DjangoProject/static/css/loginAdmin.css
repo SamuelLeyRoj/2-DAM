@@ -9,10 +9,13 @@ body {
 
 label{
     font-family: "Arial Black";
+    font-size: 17px;
 }
 
 h2{
     font-family: "Arial Black";
+    font-size: 32px;
+
 }
 
 .main-container {
@@ -33,16 +36,20 @@ h2{
     overflow: hidden;
     position: relative;
     width: 100%;
-    max-width: 400px;
+    /* Antes era 400px, ahora 550px para que respire más */
+    max-width: 500px;
+    border-radius: 15px; /* Un poco más de redondeo para el tamaño nuevo */
 }
 
 .login-card::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(120deg, transparent, rgba(0,123,255,0.15), transparent);
+    background: linear-gradient(120deg, transparent, rgba(220,53,69,0.25), transparent);
     opacity: 0;
     transition: opacity 0.3s;
+
+    pointer-events: none;
 }
 
 .login-card:hover::before {
@@ -77,7 +84,7 @@ h2{
 }
 
 .btn-login:hover {
-    background-color: #0d6efd;
+    background-color: red;
     color: white;
     transform: translateY(-2px);
 }
