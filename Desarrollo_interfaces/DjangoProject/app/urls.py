@@ -22,11 +22,11 @@ urlpatterns = [
 
     path('CargarCategotiasUsuario/', views.cargarCategoriasUsuario, name='cargarCategoriasUsuario'),
 
-    # --- ESTA ES LA LÍNEA QUE TE FALTABA (AÑÁDELA) ---
-    path('calificar-juego/', views.calificar_juego, name='calificar_juego'),
-    # -------------------------------------------------
 
-    # Añade esto junto a las otras rutas:
+    path('calificar-juego/', views.calificar_juego, name='calificar_juego'),
+
+
+
     path('tierlist/<str:pk>/', views.cargarTierList, name='tierlist'),
     path('categorias/editar/<str:pk>/', views.editar_categoria, name='editar_categoria'),
     path('categorias/eliminar/<str:pk>/', views.eliminar_categoria, name='eliminar_categoria'),
@@ -35,6 +35,6 @@ urlpatterns = [
     path('categorias/aniadir-juego/<str:cat_pk>/', views.aniadir_juego_categoria, name='aniadir_juego_categoria'),
     path('importar-categorias/', views.importar_categorias_json, name='importar_categorias_json'),
     path('importar-juegos/', views.importar_juegos_json, name='importar_juegos_json'),
-    path('tierlist/<str:pk>/', views.cargarTierList, name='tierlist'),  # Ya estaba
-    path('guardar-tierlist/', views.guardarTierList, name='guardarTierList'),  # NUEVA
+    path('tierlist/<str:pk>/', views.cargarTierList, name='tierlist'),
+    path('guardar-tierlist/', views.guardarTierList, name='guardarTierList'),
 ]
